@@ -1,6 +1,9 @@
 import React from 'react'
 import Placeholder from '../assets/625x647.svg'
 
+
+
+
 const HomeHero = () => {
   return (
     <div className='home-hero'>
