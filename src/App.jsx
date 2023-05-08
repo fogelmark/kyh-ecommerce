@@ -17,11 +17,10 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route index element={<Home />} />
-        <Route element={<Product />} />
-        <Route element={<Contact />} />
-        <Route element={<Login />} />
+        <Route path='product' element={<Product />} />
+        <Route path='contact' element={<Contact />} />
+        <Route path='login' element={<Login />} />
       </Routes>
-      {/* <Home /> */}
     </div>
   )
 }

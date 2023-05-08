@@ -1,3 +1,17 @@
 ul {
   display: flex;
 }
+
+.collection-container {
+  display: grid;
+  gap: 1rem;
+  place-items: center;
+  border: 1px solid;
+  padding: 1rem;
+}
+
+.grid-template {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
