@@ -5,27 +5,19 @@ import { BsSearch, BsCart3 } from "react-icons/bs";
 import { NavLink } from 'react-router-dom';
 const Navbar = () => {
   return (
-    <div>
-      <div>
-      <FaAdn />
-      <h1>MensWear</h1>
+    <div className='header'>
+      <div className='title-logo'>
+        <FaAdn size={50}/>
+        <h1>ECOMMERCE</h1>
       </div>
-      <div>
-      <NavLink to="/">HOME</NavLink>
-      <NavLink to="/product">PRODUCT</NavLink>
-      <NavLink to="/contact">CONTACT</NavLink>
-      <BsSearch />
-      <NavLink to="login">login</NavLink>
-      <BsCart3 />
-      
-
-
-
-
-      
+      <div className='navigation'>
+        <li><NavLink to="/">HOME</NavLink></li>
+        <li><NavLink to="/product">PRODUCT</NavLink></li>
+        <li><NavLink to="/contact">CONTACT</NavLink></li>
+        <li><BsSearch /></li>
+        <li><NavLink to="/login">Login</NavLink></li>
+        <li><BsCart3 />  </li>    
       </div>
-
-
     </div>
   )
 }
