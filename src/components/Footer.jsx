@@ -2,7 +2,9 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div>Footer</div>
+    <div className='footer'>
+        <p>© 2023 bmarketo.  All right reserved</p>
+    </div>
   )
 }
 
