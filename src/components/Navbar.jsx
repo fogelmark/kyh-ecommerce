@@ -3,6 +3,7 @@ import { FaAdn } from "react-icons/fa";
 import { BsSearch, BsCart3 } from "react-icons/bs";
 
 import { NavLink } from 'react-router-dom';
+import Registration from '../pages/Registration';
 const Navbar = () => {
   return (
     <div className='header'>
@@ -14,6 +15,7 @@ const Navbar = () => {
         <li><NavLink to="/">HOME</NavLink></li>
         <li><NavLink to="/product">PRODUCT</NavLink></li>
         <li><NavLink to="/contact">CONTACT</NavLink></li>
+        <li><NavLink to="/register">REGISTER</NavLink></li>
         <li><BsSearch /></li>
         <li><NavLink to="/login">Login</NavLink></li>
         <li><BsCart3 />  </li>    

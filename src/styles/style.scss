@@ -1,6 +1,8 @@
 @import "navbar";
 @import "homehero";
 @import "collection";
+@import "login";
+@import "registration";
 
 * {
   margin: 0;
@@ -25,3 +27,11 @@ li {
   list-style: none;
 }
 
+
+.footer{
+  text-align: center;
+  background-color: rgb(41, 41, 41);
+  color: rgb(193, 195, 196);
+  padding: 40px;
+  font-size: 14px;
+}
