@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { FaStar, FaRegStar } from 'react-icons/fa';
 import ImagePlaceholder1 from '../assets/501x430.svg';
 import ImagePlaceholder2 from '../assets/120x113.svg';
+import { FaStar, FaRegStar } from 'react-icons/fa';
+import { BsCart3 } from "react-icons/bs";
 
 const StarIcon = ({ filled }) => (filled ? <FaStar className="star" /> : <FaRegStar className="star" />);
 
@@ -60,9 +61,9 @@ const ProductDetailInfo = () => {
                     </div>
                     <div className="quantity">
                         <button className="quantity-button" onClick={decrementQuantity}>-</button>
-                        <span>{quantity}</span>
+                        <span className='quantity-number'>{quantity}</span>
                         <button className="quantity-button" onClick={incrementQuantity}>+</button>
-                        <button className="add-to-cart-button">Add to Cart</button>
+                        <button className="add-to-cart-button">Add to Cart <BsCart3 className='cart'/></button>
                     </div>
                     <div className="action-buttons">
                     </div>

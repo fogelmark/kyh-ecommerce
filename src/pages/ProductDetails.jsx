@@ -1,6 +1,7 @@
 import React from 'react'
 import ProductDetailHero from '../components/ProductDetailHero'
 import ProductDetailInfo from '../components/ProductDetailInfo'
+import ProductDetailDesc from '../components/ProductDetailDesc'
 
 
 const ProductDetails = () => {
@@ -8,7 +9,7 @@ const ProductDetails = () => {
         <div>
             <ProductDetailHero />
             <ProductDetailInfo />
-            {/* <HomeSale /> */}
+            <ProductDetailDesc />
         </div>
     )
 }
