@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import Placeholder3 from '../assets/369x310.svg'
-import HomeSaleCard from './HomeSaleCard'
+import Placeholder3 from '../../assets/369x310.svg'
+import HomeSaleCard from '../home/HomeSaleCard'
 
 const HomeSale = () => {
 

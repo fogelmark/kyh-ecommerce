@@ -1,42 +1,59 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
+// import Placeholder2 from '../assets/270x295.svg'
+import Placeholder2 from '../../assets/270x295.svg'
 import CollectionCard from './CollectionCard'
-import Placeholder2 from '../assets/270x295.svg'
 
 const Collection = () => {
 
   const [collectionCard, setCollectionCard] = useState([
     {
       id: 1,
-      image: Placeholder2
+      image: Placeholder2,
+      product: 'Lorem ipsum',
+      price: '499,00 kr'
     },
     {
       id: 2,
-      image: Placeholder2
+      image: Placeholder2,
+      product: 'Lorem ipsum',
+      price: '499,00 kr'
     },
     {
       id: 3,
-      image: Placeholder2
+      image: Placeholder2,
+      product: 'Lorem ipsum',
+      price: '499,00 kr'
     },
     {
       id: 4,
-      image: Placeholder2
+      image: Placeholder2,
+      product: 'Lorem ipsum',
+      price: '499,00 kr'
     },
     {
       id: 5,
-      image: Placeholder2
+      image: Placeholder2,
+      product: 'Lorem ipsum',
+      price: '499,00 kr'
     },
     {
       id: 6,
-      image: Placeholder2
+      image: Placeholder2,
+      product: 'Lorem ipsum',
+      price: '499,00 kr'
     },
     {
       id: 7,
-      image: Placeholder2
+      image: Placeholder2,
+      product: 'Lorem ipsum',
+      price: '499,00 kr'
     },
     {
       id: 8,
-      image: Placeholder2
+      image: Placeholder2,
+      product: 'Lorem ipsum',
+      price: '499,00 kr'
     },
   ])
 
@@ -66,7 +83,7 @@ const Collection = () => {
       <div className='grid-template'>
         {
           collectionCard.map(card => (
-            <CollectionCard card={card} key={card.id}/>
+            <CollectionCard card={card} key={card.id} />
           ))
         }
       </div>

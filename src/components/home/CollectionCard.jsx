@@ -3,8 +3,10 @@ import { useState } from 'react'
 const CollectionCard = ({ card }) => {
 
   return (
-    <div>
+    <div className='collection-card'>
       <img src={card.image} />
+      <p>{card.product}</p>
+      <p>{card.price}</p>
     </div>
   )
 }
