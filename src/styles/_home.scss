@@ -1,0 +1,30 @@
+.home-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem;
+  background-color: #e8e8e8;
+}
+
+ul {
+  display: flex;
+}
+
+.collection-container {
+  display: grid;
+  gap: 1rem;
+  place-items: center;
+  padding: 1rem;
+  .collection-card {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    border-bottom: 1px solid #e8e8e8;
+  }
+}
+
+.grid-template {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
