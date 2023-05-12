@@ -10,6 +10,7 @@ import Contact from './pages/Contact'
 import Login from './pages/Login'
 import Registration from './pages/Registration'
 import Footer from './components/Footer'
+import ProductDetails from './pages/ProductDetails.jsx'
 
 
 
@@ -36,6 +37,7 @@ const App = () => {
         <Route path='contact' element={<Contact />} />
         <Route path='login' element={<Login user={user} setUser={setUser}/>} />
         <Route path='register' element={<Registration user={user} setUser={setUser}/>}/>
+        <Route path='productDetails' element={<ProductDetails />} />
       </Routes>
       <Footer />
     </div>
