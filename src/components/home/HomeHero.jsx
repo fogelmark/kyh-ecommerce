@@ -8,12 +8,13 @@ const HomeHero = () => {
   return (
     <div className='home-hero'>
       <div className='home-hero-left'>
-        <p>Welcome!</p>
+        <p>WELCOME TO ECOMMERCE</p>
         <h1>Exclusive mens wear</h1>
-        <button>SHOP NOW</button>
+        <button className='button button-primary'>shop now</button>
       </div>
       <div className='home-hero-right'>
-        <img src={Placeholder} alt="Placeholder" />
+        {/* <img src={Placeholder} alt="Placeholder" /> */}
+        <div className='image-container'></div>
       </div>
     </div>
   )

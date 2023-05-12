@@ -80,14 +80,14 @@ const Collection = () => {
         <li><NavLink to="#">Beauty</NavLink></li>
         <span>/</span>
       </ul>
-      <div className='grid-template'>
+      <div className='grid-collection-template'>
         {
           collectionCard.map(card => (
             <CollectionCard card={card} key={card.id} />
           ))
         }
       </div>
-      <button>LOAD MORE</button>
+      <button className='button button-secondary'>load more</button>
     </div>
   )
 }
