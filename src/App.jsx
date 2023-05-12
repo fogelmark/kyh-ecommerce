@@ -1,4 +1,4 @@
-import React from 'react'
+import {useEffect, useState} from 'react'
 
 import { Route, Routes } from 'react-router-dom'
 
@@ -14,6 +14,19 @@ import Footer from './components/Footer'
 
 
 const App = () => {
+
+    useEffect(() => {
+    const token = localStorage.getItem('token')
+    if(token) {
+      axios.get('http://localhost:9090/api/user/')
+        .then(res => {
+          console.log(res)
+        })
+    }
+  }, [])
+
+  const [user, setUser] = useState(null)
+
   return (
     <div>
       <Navbar />
@@ -21,8 +34,8 @@ const App = () => {
         <Route index element={<Home />} />
         <Route path='product' element={<Product />} />
         <Route path='contact' element={<Contact />} />
-        <Route path='login' element={<Login />} />
-        <Route path='register' element={<Registration />}/>
+        <Route path='login' element={<Login user={user} setUser={setUser}/>} />
+        <Route path='register' element={<Registration user={user} setUser={setUser}/>}/>
       </Routes>
       <Footer />
     </div>

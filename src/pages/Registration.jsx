@@ -18,7 +18,7 @@ const initState = {
 }
 
 
-const Registration = () => {
+const Registration = ({user,setUser}) => {
   
   const [formData, setFormData] = useState(initState)
 
@@ -96,7 +96,7 @@ const Registration = () => {
 
 
 
-      if(formData.password != formData.confirmPassword){
+      if(formData.password !== formData.confirmPassword){
         setError(data => {
         return{
           ...data, confirmPassword: 'password does not match '
@@ -108,10 +108,12 @@ const Registration = () => {
 
       console.log(formData);
           
-        const res = await axios.post('http://localhost:8080/user', formData)
+        const res = await axios.post(' http://localhost:8080/api/user/register', formData)
         console.log(res);
       
 
+
+        setUser(res)
 
     setFormData(initState)
     
@@ -120,7 +122,13 @@ const Registration = () => {
   
 
 
+  // const get =  async () =>{
+  //   const getUser = await axios.get('http://localhost:9090/api/user')
+  //   console.log(getUser);
+  // }
 
+
+  // get()
 
 
   return (
