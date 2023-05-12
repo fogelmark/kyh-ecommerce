@@ -12,7 +12,7 @@ const initState = {
   message: ''
 }
 
-hej
+
 
 const Contact = () => {
 
