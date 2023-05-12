@@ -1,16 +1,22 @@
 import  { useState } from 'react'
 import axios from 'axios'
-import {} from 'react-router-dom'
+import {useNavigate, Navigate} from 'react-router-dom'
 
 
-const Login = () => {
+const Login = ({setUser, user}) => {
+
+  if(user){
+    return <Navigate to={"/"} />
+  }
+
+  const navigate = useNavigate()
 
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   })
 
-  const handleChane = e =>{
+  const handleChange = e =>{
     setFormData(preData => {
       return {
         ...preData,
@@ -22,11 +28,19 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    const res = await axios.post('', formData)
-    // if(res){
-      // setUser(res)
-    }
+    console.log(formData);
 
+
+    const res = await axios.post('http://localhost:9090/api/user/login', formData)
+    console.log(res);
+    //  localStorage.setItem('token', res.token)
+
+
+    if(res){
+      setUser(res)
+      navigate('/')
+    }
+  }
   
 
 
@@ -37,11 +51,11 @@ const Login = () => {
       <form onSubmit={handleSubmit}>
         <div className='form-group'>
           <label htmlFor="email">E-mail*</label><p className='red-text'>Don't have an Account yet?</p>
-          <input type="text" name='email' className='input' id='email' value={formData.email} onChange={handleChane}/>
+          <input type="email" name='email' className='input' id='email' value={formData.email} onChange={handleChange}/>
         </div>
         <div className='form-group'>
           <label htmlFor="password">Password*</label><p className='red-text1'>Forgot Your Password ?</p>
-          <input type="text" name='password' className='input' id='password' value={formData.password} onChange={handleChane}/>
+          <input type="password" name='password' className='input' id='password' value={formData.password} onChange={handleChange}/>
         </div>
         <div>
           <input className='checkbox' type="checkbox" />
