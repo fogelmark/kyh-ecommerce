@@ -72,32 +72,61 @@ return (
       <form onSubmit={handleSubmit}>
         <div className='form-group right'>
           <label htmlFor="fullName">Full Name*</label>
-          <input type="text" name='fullName' className='input' id='fullName' value={formData.fullName} onChange={handleChaneInput}  />
+          <input 
+          type="text" 
+          name='fullName' 
+          className='input' 
+          id='fullName' 
+          value={formData.fullName} 
+          onChange={handleChaneInput}  />
           <p className='error-text'>{error.fullName}</p>
        </div>
 
        <div className='form-group left'>
           <label htmlFor="email">E-mail*</label>
-          <input type="email" name='email' className='input' id='email' value={formData.email} onChange={handleChaneInput} />
+          <input 
+          type="email" 
+          name='email' 
+          className='input' 
+          id='email' 
+          value={formData.email} 
+          onChange={handleChaneInput} />
           <p className='error-text'>{error.email}</p>
        </div>
 
       <div className='form-group right'>
          <label htmlFor="mobile">Mobile (optional)</label>
-         <input type="text" name='mobile' className='input' id='mobile' value={formData.mobile} onChange={handleChaneInput} />
+         <input 
+         type="text" 
+         name='mobile' 
+         className='input' 
+         id='mobile' 
+         value={formData.mobile} 
+         onChange={handleChaneInput} />
          <p className='error-text'>{error.mobile}</p>
       </div>
 
       <div className='form-group left'>
         <label htmlFor="company">Company (optional)</label>
-        <input type="text" name='company' className='input' id='company'  value={formData.company} onChange={handleChaneInput}/>
+        <input 
+        type="text" 
+        name='company' 
+        className='input'
+         id='company'  
+         value={formData.company} 
+         onChange={handleChaneInput}/>
         <p>{error.company}</p>
       </div>
  
       <div className='form-group'>
         <label htmlFor="message">Message</label>
         {/* <input type="text" name='message' className='input' id='message' value={formData.message} onChange={handleChaneInput}/> */}
-        <textarea  name="message" id="message"  className='message-input'  value={formData.message} onChange={handleChaneInput}></textarea>
+        <textarea  
+        name="message" 
+        id="message"  
+        className='message-input'  
+        value={formData.message} 
+        onChange={handleChaneInput}></textarea>
         <p className='error-text'>{error.message}</p>
        </div>
 
