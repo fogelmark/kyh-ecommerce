@@ -1,9 +1,7 @@
 import {useEffect, useState} from 'react'
-
 import { Route, Routes } from 'react-router-dom'
 
 import Navbar from './components/Navbar'
-
 import Home from './pages/Home'
 import Product from './pages/Product'
 import Contact from './pages/Contact'
@@ -34,8 +32,8 @@ const App = () => {
         <Route index element={<Home />} />
         <Route path='product' element={<Product />} />
         <Route path='contact' element={<Contact />} />
-        <Route path='login' element={<Login user={user} setUser={setUser}/>} />
-        <Route path='register' element={<Registration user={user} setUser={setUser}/>}/>
+        <Route path='login' element={<Login />} />
+        <Route path='register' element={<Registration />}/>
       </Routes>
       <Footer />
     </div>

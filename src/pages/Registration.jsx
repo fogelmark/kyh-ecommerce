@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import  { useState } from 'react'
 import { checkIfEmpty } from './Validation'
+import {useNavigate, Navigate} from 'react-router-dom'
 
 const initState = {
   firstName: '',
@@ -18,8 +19,10 @@ const initState = {
 }
 
 
-const Registration = ({user,setUser}) => {
+const Registration = () => {
   
+  const navigate = useNavigate()
+
   const [formData, setFormData] = useState(initState)
 
   
@@ -96,39 +99,29 @@ const Registration = ({user,setUser}) => {
 
 
 
-      if(formData.password !== formData.confirmPassword){
+      if(formData.password != formData.confirmPassword){
         setError(data => {
         return{
           ...data, confirmPassword: 'password does not match '
+          
         }})
+        return true
 
       }
 
-      
-
       console.log(formData);
           
-        const res = await axios.post(' http://localhost:8080/api/user/register', formData)
+        const res = await axios.post(' http://localhost:7777/api/user/register', formData)
         console.log(res);
       
-
-
-        setUser(res)
-
     setFormData(initState)
+    if(res){
+      navigate('/')
+    }
+    
     
   }
 
-  
-
-
-  // const get =  async () =>{
-  //   const getUser = await axios.get('http://localhost:9090/api/user')
-  //   console.log(getUser);
-  // }
-
-
-  // get()
 
 
   return (
