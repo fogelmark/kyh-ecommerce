@@ -4,8 +4,10 @@ const CollectionCard = ({ card }) => {
 
   return (
     <div className='collection-card'>
-      <img src={card.image} />
-      <p>{card.product}</p>
+      <div className='image-container'>
+        <img src={card.image} />
+      </div>
+      <p>{card.title}</p>
       <p>{card.price}</p>
     </div>
   )

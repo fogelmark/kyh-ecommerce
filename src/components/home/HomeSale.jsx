@@ -28,18 +28,23 @@ const HomeSale = () => {
   // ])
 
   return (
-
-     <div className='sale-container'>
-      <div className='grid-sale-template'>
-        <HomeSaleProduct />
-        <HomeSaleAd />
-        <HomeSaleProduct />
-        {/* {
-          saleCard.map(card => (
-          <HomeSaleCard card={card} key={card.id} /> ))
-        } */}
+    
+    // <div className='sale-background'>
+      <div className='sale-container'>
+        <div className='grid-sale-template'>
+          { // Ta bort en HomeSaleAd
+            // Mappa istället ut de båda och flytta runt de med grid areas
+          }
+          <HomeSaleProduct />
+          <HomeSaleAd />
+          <HomeSaleProduct />
+          {/* {
+            saleCard.map(card => (
+            <HomeSaleCard card={card} key={card.id} /> ))
+          } */}
+        </div>
       </div>
-      </div>
+    // </div>
   )
 }
 

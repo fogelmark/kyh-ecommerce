@@ -153,25 +153,31 @@
   color: #858585;
 }
 
-.home-hero {
+.home-hero-container {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 2rem;
   background-color: #e8e8e8;
+  padding: 2rem;
 }
-.home-hero .home-hero-left p {
+.home-hero-container .home-hero-left p {
   letter-spacing: 1.2px;
   margin-bottom: 1rem;
 }
-.home-hero .home-hero-left h1 {
+.home-hero-container .home-hero-left h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
 }
-.home-hero .home-hero-right {
+.home-hero-container .home-hero-right {
   width: 625px;
   height: 647px;
   background-color: #fff;
+}
+.home-hero-container .home-hero-right img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .collection-container,
@@ -180,6 +186,8 @@
   gap: 1rem;
   place-items: center;
   padding: 3rem;
+  width: 100%;
+  margin: 0 auto;
 }
 .collection-container h1, .collection-container ul,
 .top-sellers-container h1,
@@ -205,6 +213,22 @@
   gap: 0.5rem;
   border-bottom: 1px solid #e8e8e8;
 }
+.collection-container .collection-card .image-container,
+.collection-container .top-sellers-card .image-container,
+.top-sellers-container .collection-card .image-container,
+.top-sellers-container .top-sellers-card .image-container {
+  width: 100%;
+  height: 295px;
+}
+.collection-container .collection-card img,
+.collection-container .top-sellers-card img,
+.top-sellers-container .collection-card img,
+.top-sellers-container .top-sellers-card img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
 .collection-container .collection-card p:last-of-type,
 .collection-container .top-sellers-card p:last-of-type,
 .top-sellers-container .collection-card p:last-of-type,
@@ -218,12 +242,17 @@
   color: #a1a1a1;
 }
 
+.sale-background {
+  background-color: #faefef;
+}
+
 .sale-container {
   display: grid;
   gap: 1rem;
   place-items: center;
   padding: 3rem;
   background-color: #faefef;
+  margin: 0 auto;
 }
 .sale-container .sale-card,
 .sale-container .sale-ad {
@@ -278,6 +307,7 @@
   gap: 1rem;
   place-items: center;
   padding: 3rem;
+  margin: 0 auto;
 }
 
 .top-post-card p {
