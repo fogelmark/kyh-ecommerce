@@ -1,61 +1,21 @@
-import { useState } from 'react'
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { NavLink } from 'react-router-dom'
-// import Placeholder2 from '../assets/270x295.svg'
-import Placeholder2 from '../../assets/270x295.svg'
 import CollectionCard from './CollectionCard'
 
 const Collection = () => {
 
-  const [collectionCard, setCollectionCard] = useState([
-    {
-      id: 1,
-      image: Placeholder2,
-      product: 'Lorem ipsum',
-      price: '499,00 kr'
-    },
-    {
-      id: 2,
-      image: Placeholder2,
-      product: 'Lorem ipsum',
-      price: '499,00 kr'
-    },
-    {
-      id: 3,
-      image: Placeholder2,
-      product: 'Lorem ipsum',
-      price: '499,00 kr'
-    },
-    {
-      id: 4,
-      image: Placeholder2,
-      product: 'Lorem ipsum',
-      price: '499,00 kr'
-    },
-    {
-      id: 5,
-      image: Placeholder2,
-      product: 'Lorem ipsum',
-      price: '499,00 kr'
-    },
-    {
-      id: 6,
-      image: Placeholder2,
-      product: 'Lorem ipsum',
-      price: '499,00 kr'
-    },
-    {
-      id: 7,
-      image: Placeholder2,
-      product: 'Lorem ipsum',
-      price: '499,00 kr'
-    },
-    {
-      id: 8,
-      image: Placeholder2,
-      product: 'Lorem ipsum',
-      price: '499,00 kr'
-    },
-  ])
+  const [data, setData] = useState([]);
+
+  const fetchData = async () => {
+    const result = await axios.get('https://fakestoreapi.com/products?limit=8');
+    setData(result.data);
+    console.log(result.data);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <div className='collection-container'>
@@ -82,7 +42,7 @@ const Collection = () => {
       </ul>
       <div className='grid-collection-template'>
         {
-          collectionCard.map(card => (
+          data.map(card => (
             <CollectionCard card={card} key={card.id} />
           ))
         }
