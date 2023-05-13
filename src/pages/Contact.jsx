@@ -63,9 +63,11 @@ const Contact = () => {
 
 return (
 
-  <div>
-
-    <img src={Placeholder} alt="" />  
+  <div >
+    
+    <div className='contact-hero'>
+    {/* <img src={Placeholder} alt="" />  */}
+    </div> 
     <div className='create-form'>
       
      
