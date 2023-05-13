@@ -30,9 +30,6 @@ const Login = () => {
 
     const res = await axios.post('http://localhost:7777/api/user/login', formData)
     console.log(res);
-    //  localStorage.setItem('token', res.token)
-
-
     if(res){
       navigate('/')
     }
@@ -46,7 +43,7 @@ const Login = () => {
       <p className='form-text'>Please Login To Your Account</p>
       <form onSubmit={handleSubmit}>
         <div className='form-group'>
-          <label htmlFor="email">E-mail*</label><p className='red-text' ><Link to={'/register'}>Don't have an Account yet?</Link></p>
+          <label htmlFor="email">E-mail*</label><p className='red-text' ><Link className='error-text' to={'/register'}>Don't have an Account yet?</Link></p>
           <input type="email" name='email' className='input' id='email' value={formData.email} onChange={handleChange}/>
         </div>
         <div className='form-group'>
