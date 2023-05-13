@@ -111,7 +111,7 @@ const Registration = () => {
 
       console.log(formData);
           
-        const res = await axios.post(' http://localhost:7777/api/user/register', formData)
+        const res = await axios.post(' http://localhost:8080/api/user/register', formData)
         console.log(res);
       
     setFormData(initState)

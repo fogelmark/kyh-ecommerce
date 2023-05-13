@@ -5,10 +5,10 @@ const CollectionCard = ({ card }) => {
   return (
     <div className='collection-card'>
       <div className='image-container'>
-        <img src={card.image} />
+        <img src={card.imageURL} />
       </div>
-      <p>{card.title}</p>
-      <p>{card.price}</p>
+      <p>{card.productName}</p>
+      <p>{card.price} kr</p>
     </div>
   )
 }

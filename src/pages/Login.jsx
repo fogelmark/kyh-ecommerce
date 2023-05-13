@@ -5,6 +5,9 @@ import {useNavigate, Navigate, Link} from 'react-router-dom'
 
 const Login = () => {
 
+  // if(user){
+  //   return <Navigate to={"/"} />
+  // }
 
   const navigate = useNavigate()
 
@@ -28,7 +31,7 @@ const Login = () => {
     console.log(formData);
 
 
-    const res = await axios.post('http://localhost:7777/api/user/login', formData)
+    const res = await axios.post('http://localhost:8080/api/user/login', formData)
     console.log(res);
     if(res){
       navigate('/')
