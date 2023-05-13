@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import CollectionCard from './CollectionCard'
 
 const Collection = () => {
@@ -8,7 +8,8 @@ const Collection = () => {
   const [data, setData] = useState([]);
 
   const fetchData = async () => {
-    const result = await axios.get('https://fakestoreapi.com/products?limit=8');
+    // const result = await axios.get('https://fakestoreapi.com/products?limit=8');
+    const result = await axios.get('http://localhost:8080/api/product');
     setData(result.data);
     console.log(result.data);
   };
@@ -41,11 +42,13 @@ const Collection = () => {
         <span>/</span>
       </ul>
       <div className='grid-collection-template'>
+        <Link to={`/productdetails/`} key={data.id}>
         {
           data.map(card => (
             <CollectionCard card={card} key={card.id} />
           ))
         }
+        </Link>
       </div>
       <button className='button button-secondary'>load more</button>
     </div>

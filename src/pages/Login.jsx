@@ -5,9 +5,9 @@ import {useNavigate, Navigate} from 'react-router-dom'
 
 const Login = ({setUser, user}) => {
 
-  if(user){
-    return <Navigate to={"/"} />
-  }
+  // if(user){
+  //   return <Navigate to={"/"} />
+  // }
 
   const navigate = useNavigate()
 
@@ -31,7 +31,7 @@ const Login = ({setUser, user}) => {
     console.log(formData);
 
 
-    const res = await axios.post('http://localhost:9090/api/user/login', formData)
+    const res = await axios.post('http://localhost:8080/api/user/login', formData)
     console.log(res);
     //  localStorage.setItem('token', res.token)
 
