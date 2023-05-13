@@ -1,13 +1,10 @@
 import  { useState } from 'react'
 import axios from 'axios'
-import {useNavigate, Navigate} from 'react-router-dom'
+import {useNavigate, Navigate, Link} from 'react-router-dom'
 
 
-const Login = ({setUser, user}) => {
+const Login = () => {
 
-  if(user){
-    return <Navigate to={"/"} />
-  }
 
   const navigate = useNavigate()
 
@@ -31,13 +28,9 @@ const Login = ({setUser, user}) => {
     console.log(formData);
 
 
-    const res = await axios.post('http://localhost:9090/api/user/login', formData)
+    const res = await axios.post('http://localhost:7777/api/user/login', formData)
     console.log(res);
-    //  localStorage.setItem('token', res.token)
-
-
     if(res){
-      setUser(res)
       navigate('/')
     }
   }
@@ -50,11 +43,11 @@ const Login = ({setUser, user}) => {
       <p className='form-text'>Please Login To Your Account</p>
       <form onSubmit={handleSubmit}>
         <div className='form-group'>
-          <label htmlFor="email">E-mail*</label><p className='red-text'>Don't have an Account yet?</p>
+          <label htmlFor="email">E-mail*</label><p className='red-text' ><Link className='error-text' to={'/register'}>Don't have an Account yet?</Link></p>
           <input type="email" name='email' className='input' id='email' value={formData.email} onChange={handleChange}/>
         </div>
         <div className='form-group'>
-          <label htmlFor="password">Password*</label><p className='red-text1'>Forgot Your Password ?</p>
+          <label htmlFor="password">Password*</label><p className='red-text1'></p>
           <input type="password" name='password' className='input' id='password' value={formData.password} onChange={handleChange}/>
         </div>
         <div>
