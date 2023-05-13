@@ -8,6 +8,7 @@ import Contact from './pages/Contact'
 import Login from './pages/Login'
 import Registration from './pages/Registration'
 import Footer from './components/Footer'
+import ProductDetails from './pages/ProductDetails.jsx'
 
 
 

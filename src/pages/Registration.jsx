@@ -155,7 +155,7 @@ const Registration = () => {
           <p className='error-text'>{error.city}</p>
         </div>
         <div className='form-group right'>
-          <label htmlFor="mobile">Mobile (optional)</label>
+          <label htmlFor="mobile">Mobile</label>
           <input type="text" name='mobile' className='input' id='mobile' value={formData.mobile} onChange={handleChaneInput} />
           <p className='error-text'>{error.mobile}</p>
         </div>

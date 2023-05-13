@@ -1,0 +1,21 @@
+.products{
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   grid-gap: 20px;
+   padding: 5em;
+
+}
+.productCard {
+   display: flex;
+   flex-wrap: wrap;
+   border: 1px solid gray;
+   border-radius: 1em;
+   padding: 2em;
+   background: rgba(75, 78, 78, 0.192);
+   img {
+     margin-bottom: 20px;
+     border-radius: 1em;
+     height: 400px; 
+   }
+ }
+ 
