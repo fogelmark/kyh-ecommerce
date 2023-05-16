@@ -1,6 +1,7 @@
 import React from 'react'
-import Placeholder from '../../assets/625x647.svg'
-import axios from 'axios'
+import { Link } from 'react-router-dom'
+import HeroImage from '../../assets/home-hero-image.jpg'
+import HeroImage2 from '../../assets/home-hero-image-2.jpg'
 
 
 
@@ -11,18 +12,20 @@ const HomeHero = ({product}) => {
 
   // Från product props får man ut alla produkter
   // console.log(product[1].imageURL);
+
+  
   
   return (
     <div className='home-hero-container'>
       <div className='home-hero-left'>
         <p>WELCOME TO ECOMMERCE</p>
         <h1>Exclusive mens wear</h1>
-        <button className='button button-primary'>shop now</button>
+        <Link to={`/product/`}><button className='button button-primary'>shop now</button></Link>
       </div>
       <div className='home-hero-right'>
-        {/* <div className='image-container'> */}
-          {/* <img src={product[1].imageURL} alt="hej" /> */}
-        {/* </div> */}
+        <div className='image-container'>
+          <img src={HeroImage2} alt={HeroImage2} />
+        </div>
       </div>
     </div>
   )
