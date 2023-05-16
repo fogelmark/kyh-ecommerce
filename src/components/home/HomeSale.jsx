@@ -1,50 +1,39 @@
-import { useState } from 'react'
-import Placeholder3 from '../../assets/369x310.svg'
-import HomeSaleCard from '../home/HomeSaleCard'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import { Link } from 'react-router-dom'
 import HomeSaleAd from '../home/HomeSaleAd'
 import HomeSaleProduct from './HomeSaleProduct'
 
 const HomeSale = () => {
 
+  const [data, setData] = useState([]);
 
-  // const [saleCard, setsaleCard] = useState([
-  //   {
-  //     id: 1,
-  //     // image: Placeholder3,
-  //     // product: 'Lorem ipsum',
-  //     // originalPrice: '299,00 kr',
-  //     // reducedPrice: '199,00 kr'
-  //   },
-  //   {
-  //     id: 2,
-  //     // image: Placeholder3,
-  //     // product: 'Lorem ipsum',
-  //     // originalPrice: '299,00 kr',
-  //     // reducedPrice: '199,00 kr'
-  //   },
-  //   {
-  //     id: 3
-  //   }
-  // ])
+  const fetchData = async () => {
+    const result = await axios.get('http://localhost:8080/api/product');
+    setData(result.data);
+    console.log(result.data);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
-    
-    // <div className='sale-background'>
       <div className='sale-container'>
         <div className='grid-sale-template'>
           { // Ta bort en HomeSaleAd
             // Mappa istället ut de båda och flytta runt de med grid areas
           }
-          <HomeSaleProduct />
           <HomeSaleAd />
-          <HomeSaleProduct />
-          {/* {
-            saleCard.map(card => (
-            <HomeSaleCard card={card} key={card.id} /> ))
-          } */}
+          {
+          data.map(card => (
+            <Link to={`/productdetails/`} key={card._id}>
+              <HomeSaleProduct card={card} key={card._id} />
+            </Link>
+          ))
+        }
         </div>
       </div>
-    // </div>
   )
 }
 

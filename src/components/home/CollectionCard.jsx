@@ -7,7 +7,7 @@ const CollectionCard = ({ card }) => {
       <div className='image-container'>
         <img src={card.imageURL} />
       </div>
-      <p>{card.productName}</p>
+      <p>{card.name}</p>
       <p>{card.price} kr</p>
     </div>
   )

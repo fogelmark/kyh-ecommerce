@@ -3,18 +3,21 @@ import Placeholder3 from '../../assets/369x310.svg'
 import { MdAddShoppingCart } from "react-icons/md";
 
 
-const HomeSaleProduct = () => {
+const HomeSaleProduct = ({ card }) => {
 
   return (
     <div className='sale-card'>
-      <img src={Placeholder3} />
+      <div className='image-container'>
+        {/* <img src={card.imageURL} /> */}
+        <img src={card.imageURL} />
+      </div>
       <div className='product-title'>
-        <p>Table Lamp - Lorem, ipsum.</p>
+        <p>{card.name}</p>
       </div>
       <div className='product-info'>
         <div className='sale-price'>
           <p>299,00 kr</p>
-          <p>199,00 kr</p>
+          <p>{card.price}</p>
         </div>
         <MdAddShoppingCart style={{color: '#a1a1a1'}}/>
       </div>
