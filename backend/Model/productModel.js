@@ -27,8 +27,11 @@ exports.createNewProduct = (req, res) =>{
 
 exports.getAllProduct = async (req, res) =>{
 
+    const limit = parseInt(req.query.limit)
+
+
     try {
-        const products = await Product.find()
+        const products = await Product.find().limit(limit)
         res.status(200).json(products)
         
     } catch (err) {

@@ -2,14 +2,12 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
-  // width: 80%;
 }
 
 .grid-sale-template {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  // width: 80%;
 }
 
 .top-sellers-grid-template {
@@ -264,4 +262,9 @@
       background-color: hsl(0, 68%, 52%);
     }
   }
+}
+
+.disabled {
+  opacity: .2;
+  pointer-events: none;
 }
