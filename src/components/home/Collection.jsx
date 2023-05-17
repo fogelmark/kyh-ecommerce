@@ -6,16 +6,23 @@ import CollectionCard from './CollectionCard'
 const Collection = () => {
 
   const [data, setData] = useState([]);
+  const [limit, setLimit] = useState(4)
 
   const fetchData = async () => {
-    const result = await axios.get('http://localhost:8080/api/product');
+    const result = await axios.get(`http://localhost:8080/api/product?limit=${limit}`);
     setData(result.data);
     console.log(result.data);
   };
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [limit]);
+
+  const loadMoreProducts = () => {
+    setLimit(prevLimit => prevLimit + 4);
+  };
+
+  const isLoadMoreDisabled = data.length >= 8;
 
   return (
     <div className='collection-container'>
@@ -49,7 +56,12 @@ const Collection = () => {
           ))
         }
       </div>
-      <button className='button button-secondary'>load more</button>
+        <button 
+        onClick={loadMoreProducts} 
+        className={`button button-secondary ${isLoadMoreDisabled ? 'disabled' : ''}`}
+        disabled={isLoadMoreDisabled}>
+          load more
+        </button>
     </div>
   )
 }

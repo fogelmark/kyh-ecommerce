@@ -9,9 +9,9 @@ const HomeSale = () => {
   const [data, setData] = useState([]);
 
   const fetchData = async () => {
-    const result = await axios.get('http://localhost:8080/api/product');
+    const result = await axios.get('http://localhost:8080/api/product?limit=2');
     setData(result.data);
-    console.log(result.data);
+    // console.log(result.data);
   };
 
   useEffect(() => {
@@ -23,6 +23,9 @@ const HomeSale = () => {
         <div className='grid-sale-template'>
           { // Ta bort en HomeSaleAd
             // Mappa istället ut de båda och flytta runt de med grid areas
+            // TBD - rendera ut produkter som är på REA. Vilken lösning är smartast?
+            // Uppdatera produkten med "onSale" i db?
+            // Byta ut "price" till originalPrice och en till kategori för "reducedPrice"?
           }
           <HomeSaleAd />
           {
