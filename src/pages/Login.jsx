@@ -5,10 +5,6 @@ import {useNavigate, Navigate, Link} from 'react-router-dom'
 
 const Login = () => {
 
-  // if(user){
-  //   return <Navigate to={"/"} />
-  // }
-
   const navigate = useNavigate()
 
   const [formData, setFormData] = useState({
@@ -16,7 +12,7 @@ const Login = () => {
     password: ''
   })
 
-  const handleChange = e =>{
+  const handleChange = e => {
     setFormData(preData => {
       return {
         ...preData,
@@ -33,6 +29,8 @@ const Login = () => {
 
     const res = await axios.post('http://localhost:8080/api/user/login', formData)
     console.log(res);
+
+    setFormData(initState)
     if(res){
       navigate('/')
     }

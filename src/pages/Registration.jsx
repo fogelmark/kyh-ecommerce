@@ -117,10 +117,10 @@ const Registration = () => {
         console.log(res);
         console.log(res.data.token);
       
-    // setFormData(initState)
-    // if(res){
-    //   navigate('/')
-    // }
+        setFormData(initState)
+        if(res){
+          navigate('/')
+        }
     
     
   }
