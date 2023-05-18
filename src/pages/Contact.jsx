@@ -8,7 +8,7 @@ const initState = {
   email: '',
   mobile: '',
   company: '',
-  message: ''
+  subject: ''
 }
 
 const Contact = () => {
@@ -20,7 +20,7 @@ const Contact = () => {
     email: '',
     mobile: '',
     company: '',
-    message: ''
+    subject: ''
    })
 
   const handleChangeInput = (e) =>{
@@ -46,20 +46,22 @@ const Contact = () => {
       return {
       ...data, email: 'You need to enter an email'}})}
 
-    if(checkIfEmpty(formData.message)){
+    if(checkIfEmpty(formData.subject)){
       setError(data => { 
       return {
-      ...data, message: 'You need to enter a message'}})}
+      ...data, subject: 'You need to enter a subject'}})}
 
       
       console.log(formData);
-          
-        const res = await axios.post('http://localhost:8080/api/contact/add', formData)
-        console.log(res);
-      
-         setFormData(initState)
-         
-       
+
+        try {
+          const res = await axios.post('http://localhost:8080/api/contact/add', formData);
+          console.log(res);
+          setFormData(initState);
+        } catch (error) {
+          console.error('Axios error:', error.message);
+          console.error('Axios status code:', error.response.status);
+        }
     }
 
 
@@ -121,15 +123,15 @@ return (
       </div>
  
       <div className='form-group'>
-        <label htmlFor="message">Message</label>
-        {/* <input type="text" name='message' className='input' id='message' value={formData.message} onChange={handleChaneInput}/> */}
+        <label htmlFor="subject">subject</label>
+        {/* <input type="text" name='subject' className='input' id='subject' value={formData.subject} onChange={handleChaneInput}/> */}
         <textarea  
-        name="message" 
-        id="message"  
+        name="subject" 
+        id="subject"  
         className='message-input'  
-        value={formData.message} 
+        value={formData.subject} 
         onChange={handleChangeInput}></textarea>
-        <p className='error-text'>{error.message}</p>
+        <p className='error-text'>{error.subject}</p>
        </div>
 
 
