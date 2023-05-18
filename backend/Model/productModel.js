@@ -71,7 +71,7 @@ exports.deleteProduct = (req, res) =>{
         if(!product){
            return res.status(404).json({message: 'Could not find the product'})
         }
-        res.status(200).json({id: product._id})
+        res.status(200).json(product)
     })
     .catch(err => {
         res.status(500).json({message: 'Something went wrong when deleting the product' ,

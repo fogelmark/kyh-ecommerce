@@ -7,7 +7,7 @@ exports.generateToken = (user) => {
     return jwt.sign({_id: user._id, displayName: user.displayName}, secretKey, {expiresIn: '1d'})
 }
 
-exports.verfyToken = (req, res, next) => {
+exports.verifyToken = (req, res, next) => {
     
     try {
         const token = req.headers.authorization.split(' ')[1];
@@ -15,7 +15,7 @@ exports.verfyToken = (req, res, next) => {
         next()
     } catch {
         return res.status(401).json({
-            message: 'please login'
+            message: 'Admin access required'
         })
         
     }
@@ -24,6 +24,7 @@ exports.verfyToken = (req, res, next) => {
 
 // för att logga in som admin  email: mia@.com - password: mia
 const admin = ['6434120960bc68540d2d3187']
+// const admin = ['645e1cd6cdf6de1416ed0943']
 
 exports.checkAdmin = (req, res, next) => {
     if(admin.includes(req.userId)){

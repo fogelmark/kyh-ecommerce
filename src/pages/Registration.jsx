@@ -112,12 +112,15 @@ const Registration = () => {
       console.log(formData);
           
         const res = await axios.post(' http://localhost:8080/api/user/register', formData)
+        localStorage.setItem('token', JSON.stringify(res.data.token))
+
         console.log(res);
+        console.log(res.data.token);
       
-    setFormData(initState)
-    if(res){
-      navigate('/')
-    }
+    // setFormData(initState)
+    // if(res){
+    //   navigate('/')
+    // }
     
     
   }

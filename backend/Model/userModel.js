@@ -45,7 +45,7 @@ exports.loginUser = (req, res) => {
 
         bcrypt.compare(password, data.passwordHash, (err, result) => {
             if(err){
-                return res.status(500).json({message: 'something went wrong when decrypting the psaaword'})
+                return res.status(500).json({message: 'something went wrong when decrypting the password'})
             }
 
             if(!result){
