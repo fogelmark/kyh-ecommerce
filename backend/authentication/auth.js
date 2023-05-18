@@ -15,7 +15,7 @@ exports.verfyToken = (req, res, next) => {
         next()
     } catch {
         return res.status(401).json({
-            message: 'plaese login'
+            message: 'please login'
         })
         
     }
@@ -31,7 +31,7 @@ exports.checkAdmin = (req, res, next) => {
     }
     else{
         res.status(401).json({
-            message: 'you nedd to be admin to se the  users orders'
+            message: 'you need to be admin to se the users orders'
         })
     }
     
