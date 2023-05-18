@@ -23,8 +23,9 @@ exports.verifyToken = (req, res, next) => {
 
 
 // för att logga in som admin  email: mia@.com - password: mia
-const admin = ['6434120960bc68540d2d3187']
-// const admin = ['645e1cd6cdf6de1416ed0943']
+// const admin = ['6434120960bc68540d2d3187']
+// test admin email: admin@mail.com pass: bytmig123
+const admin = ['646627979885aef7baa7ea69']
 
 exports.checkAdmin = (req, res, next) => {
     if(admin.includes(req.userId)){
