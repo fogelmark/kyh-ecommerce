@@ -1,16 +1,16 @@
 const mongoose = require('mongoose')
 
 const userSchema = mongoose.Schema({
-    firstName:        {type: String, required: true},
-    lastName:    {type: String, required: true},
-    streetName: {type: String, required: true},
-    postalCode:  {type: String, required: true},
-    city:        {type: String, required: true},
-    mobile:      {type: String, required: true},
-    company:    {type: String, },
-    email:       {type: String, required: true},
+    firstName:       {type: String, required: true},
+    lastName:        {type: String, required: true},
+    streetName:      {type: String, required: true},
+    postalCode:      {type: String, required: true},
+    city:            {type: String, required: true},
+    mobile:          {type: String, required: true},
+    company:         {type: String, },
+    email:           {type: String, required: true},
     passwordHash:    {type: String, required: true},
-    profileImg:       {type: String,}
+    profileImg:      {type: String,}
 })
 
 
