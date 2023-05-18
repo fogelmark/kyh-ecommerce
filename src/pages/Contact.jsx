@@ -1,5 +1,4 @@
-import React from 'react'
-import Placeholder from '../assets/1920x300.svg'
+import axios from 'axios'
 import Map from '../assets/map.png'
 import  { useState } from 'react'
 import { checkIfEmpty } from './Validation'
@@ -7,28 +6,24 @@ import { checkIfEmpty } from './Validation'
 const initState = {
   fullName: '',
   email: '',
-  phone: '',
+  mobile: '',
   company: '',
   message: ''
 }
 
-
-
 const Contact = () => {
 
   const [formData, setFormData] = useState(initState)
-
   
   const [error, setError] = useState({
     fullName: '',
     email: '',
-    phone: '',
+    mobile: '',
     company: '',
     message: ''
+   })
 
-  })
-
-  const handleChaneInput = (e) =>{
+  const handleChangeInput = (e) =>{
     setFormData(prevData =>{
       return {
         ...prevData,
@@ -43,21 +38,28 @@ const Contact = () => {
      if(checkIfEmpty(formData.fullName)){
       setError(data => { 
       return {
-      ...data,fullName: 'You need to enter a name'}})}
+      ...data, fullName: 'You need to enter a name'}})}
 
 
     if(checkIfEmpty(formData.email)){
       setError(data => { 
       return {
-      ...data,email: 'You need to enter an email'}})}
+      ...data, email: 'You need to enter an email'}})}
 
     if(checkIfEmpty(formData.message)){
       setError(data => { 
       return {
-      ...data,message: 'You need to enter a message'}})}
+      ...data, message: 'You need to enter a message'}})}
 
       
-        setFormData(initState)
+      console.log(formData);
+          
+        const res = await axios.post('http://localhost:8080/api/contact/add', formData)
+        console.log(res);
+      
+         setFormData(initState)
+         
+       
     }
 
 
@@ -66,11 +68,9 @@ return (
   <div >
     
     <div className='contact-hero'>
-    {/* <img src={Placeholder} alt="" />  */}
     </div> 
+    
     <div className='create-form'>
-      
-     
       <form onSubmit={handleSubmit}>
         <div className='form-group right'>
           <label htmlFor="fullName">Full Name*</label>
@@ -80,7 +80,7 @@ return (
           className='input' 
           id='fullName' 
           value={formData.fullName} 
-          onChange={handleChaneInput}  />
+          onChange={handleChangeInput}  />
           <p className='error-text'>{error.fullName}</p>
        </div>
 
@@ -92,7 +92,7 @@ return (
           className='input' 
           id='email' 
           value={formData.email} 
-          onChange={handleChaneInput} />
+          onChange={handleChangeInput} />
           <p className='error-text'>{error.email}</p>
        </div>
 
@@ -104,7 +104,7 @@ return (
          className='input' 
          id='mobile' 
          value={formData.mobile} 
-         onChange={handleChaneInput} />
+         onChange={handleChangeInput} />
          <p className='error-text'>{error.mobile}</p>
       </div>
 
@@ -116,7 +116,7 @@ return (
         className='input'
          id='company'  
          value={formData.company} 
-         onChange={handleChaneInput}/>
+         onChange={handleChangeInput}/>
         <p>{error.company}</p>
       </div>
  
@@ -128,7 +128,7 @@ return (
         id="message"  
         className='message-input'  
         value={formData.message} 
-        onChange={handleChaneInput}></textarea>
+        onChange={handleChangeInput}></textarea>
         <p className='error-text'>{error.message}</p>
        </div>
 

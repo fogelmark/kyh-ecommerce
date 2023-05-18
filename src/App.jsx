@@ -17,8 +17,9 @@ const App = () => {
 
     useEffect(() => {
     const token = localStorage.getItem('token')
+    console.log(token)
     if(token) {
-      axios.get('http://localhost:9090/api/user/')
+      axios.get('http://localhost:8080/api/user/')
         .then(res => {
           console.log(res)
         })
