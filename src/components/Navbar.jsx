@@ -3,6 +3,7 @@ import { FaAdn } from "react-icons/fa";
 import { BsSearch, BsCart3 } from "react-icons/bs";
 import { NavLink } from 'react-router-dom';
 import Registration from '../pages/Registration';
+import ShoppingCart from './ShoppingCart';
 
 const Navbar = () => {
 
@@ -47,7 +48,7 @@ const Navbar = () => {
         </div>
       )}
         </NavLink></li>
-        <li><BsCart3 />  </li>    
+        <ShoppingCart />
       </div>
     </div>
   )
