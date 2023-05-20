@@ -1,22 +1,12 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import HomeSaleAd from '../home/HomeSaleAd'
 import HomeSaleProduct from './HomeSaleProduct'
+import { ProductContext } from '../../contexts/ProductContext'
 
 const HomeSale = () => {
 
-  const [data, setData] = useState([]);
-
-  const fetchData = async () => {
-    const result = await axios.get('http://localhost:8080/api/product?limit=2');
-    setData(result.data);
-    // console.log(result.data);
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const { data } = useContext(ProductContext)
 
   return (
       <div className='sale-container'>

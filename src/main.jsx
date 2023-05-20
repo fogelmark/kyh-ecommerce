@@ -18,13 +18,16 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 // ++ Eran backend lösning ska innehålla full CRUD funktionalitet (GET, POST, PUT/PATCH, DELETE)
 
 // ++ Alla metoder förutom GET ska vara låsta så man måste vara inloggad för att ändra på eller ta bort produkterna. 
-// Ni ska kunna lista upp en produkt på en separat sida där produkten ska visa information som namn, beskrivning, pris och bilder mm.
 // (titta på designen på vad ni kan tänkas behöva ha på era produkter)
-// Ni ska använda er av Redux eller Context för att lagra information i applikationen under användning.
+// ++ Ni ska använda er av Redux eller Context för att lagra information i applikationen under användning.
 // ++ Ni ska använda er av react-router-dom för att kunna navigera mellan olika sidor.
+
+// TBD
 // Ni ska ha en kundvagn där man ska kunna lägga till produkter i. 
 // Man ska kunna ändra antalet produkter i kundvagnen.
 // Ni ska kunna lista upp hur många produkter som finns i kundvagnen.
+// Ni ska kunna lista upp en produkt på en separat sida där produkten ska visa information som namn, beskrivning, pris och bilder mm.
+
 
 
 // För betyget väl godkänt (VG):
