@@ -1,28 +1,11 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useContext } from "react";
 import { NavLink, Link } from 'react-router-dom'
 import CollectionCard from './CollectionCard'
+import { ProductContext } from "../../contexts/ProductContext";
 
 const Collection = () => {
-
-  const [data, setData] = useState([]);
-  const [limit, setLimit] = useState(4)
-
-  const fetchData = async () => {
-    const result = await axios.get(`http://localhost:8080/api/product?limit=${limit}`);
-    setData(result.data);
-    console.log(result.data);
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, [limit]);
-
-  const loadMoreProducts = () => {
-    setLimit(prevLimit => prevLimit + 4);
-  };
-
-  const isLoadMoreDisabled = data.length >= 8;
+  
+  const { data, loadMoreProducts, isLoadMoreDisabled } = useContext(ProductContext)
 
   return (
     <div className='collection-container'>
