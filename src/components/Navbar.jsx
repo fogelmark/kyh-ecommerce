@@ -26,7 +26,7 @@ const Navbar = () => {
   return (
     <div className='header'>
       <div className='title-logo'>
-        <FaAdn size={50}/>
+        <FaAdn size={35}/>
         <h1>ECOMMERCE</h1>
       </div>
       <div className='navigation'>
@@ -43,12 +43,12 @@ const Navbar = () => {
         </div>
       ) : (
         <div>
-          <p>Please log in</p>
+          {/* <p>Please log in</p> */}
           <button onClick={handleLogin}>Login</button>
         </div>
       )}
         </NavLink></li>
-        <ShoppingCart />
+        <li><ShoppingCart /></li>
       </div>
     </div>
   )

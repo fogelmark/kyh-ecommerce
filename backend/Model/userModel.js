@@ -72,11 +72,44 @@ exports.getAllUsers = (req, res) =>{
 }
 
 
-exports.getUserById = (req, res) => {
-    const { _id, displayName } = req.userData;
-    User.findById(_id)
-    .then(user =>{
-        res.status(200).json(user)
+// exports.getUserById = (req, res) => {
+//     const { _id, displayName } = req.userData;
+//     User.findById(_id)
+//     .then(user =>{
+//         res.status(200).json(user)
         
-    })
-}
+//     })
+// }
+
+// exports.getUserById = async (req, res) =>{
+
+//     const user = await User.findById(req.params.id)
+    
+//     if(!user){
+//         return res.status(404).json({message: 'Could not find that user'})
+//     }
+//     res.status(200).json(user) 
+// }
+
+exports.getUserById = async (req, res) => {
+    try {
+      const user = await User.findById(req.params.id);
+  
+      if (!user) {
+        return res.status(404).json({ message: 'Could not find the user' });
+      }
+  
+      const displayName = `${user.firstName} ${user.lastName}`;
+  
+      const userWithDisplayName = {
+        ...user._doc,
+        displayName,
+      };
+  
+      res.status(200).json(userWithDisplayName);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  };
+  
