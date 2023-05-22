@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import ImagePlaceholder1 from '../assets/501x430.svg';
 import ImagePlaceholder2 from '../assets/120x113.svg';
 import { FaStar, FaRegStar } from 'react-icons/fa';
 import { BsCart3 } from "react-icons/bs";
+import { ProductDetailContext } from '../contexts/ProductDetailContext';
 
 const StarIcon = ({ filled }) => (filled ? <FaStar className="star" /> : <FaRegStar className="star" />);
 
 const ProductDetailInfo = () => {
+
+    const { data } = useContext(ProductDetailContext)
+    console.log(data);
+
     const [quantity, setQuantity] = useState(1);
 
     const incrementQuantity = () => {
@@ -24,29 +29,27 @@ const ProductDetailInfo = () => {
             <div className="container">
                 <div className="left">
                     <div className="image">
-                        <img src={ImagePlaceholder1} alt="Placeholder 1" />
+                        <img src={data.imageURL} alt={data.imageURL} />
                     </div>
                     <div className="small-images">
                         <div className="image">
-                            <img src={ImagePlaceholder2} alt="Placeholder 2" />
+                            <img src={data.imageURL} alt={data.imageURL} />
                         </div>
                         <div className="image">
-                            <img src={ImagePlaceholder2} alt="Placeholder 2" />
+                            <img src={data.imageURL} alt={data.imageURL} />
                         </div>
                         <div className="image">
-                            <img src={ImagePlaceholder2} alt="Placeholder 2" />
+                            <img src={data.imageURL} alt={data.imageURL} />
                         </div>
                         <div className="image">
-                            <img src={ImagePlaceholder2} alt="Placeholder 2" />
+                            <img src={data.imageURL} alt={data.imageURL} />
                         </div>
                     </div>
                 </div>
                 <div className="product-details-info left">
-                    <h2>Product Name</h2>
+                    <h2>{data.name}</h2>
                     <p className="detail-text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa ad fugiat, sint, repellat sit tenetur
-                        quaerat necessitatibus, beatae aliquam obcaecati dolores? Sed, nam. Aliquid quod ad, ipsa unde quos
-                        itaque.
+                        {data.description}
                     </p>
                     <div className="reviews">
                         <StarIcon filled />
@@ -57,7 +60,7 @@ const ProductDetailInfo = () => {
                         <p>5.0 (25 reviews)</p>
                     </div>
                     <div className="price">
-                        <span>$99.99</span>
+                        <span>{data.price}</span>
                     </div>
                     <div className="quantity">
                         <button className="quantity-button" onClick={decrementQuantity}>-</button>

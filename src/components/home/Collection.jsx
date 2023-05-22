@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { NavLink, Link } from 'react-router-dom'
 import CollectionCard from './CollectionCard'
 import { ProductContext } from "../../contexts/ProductContext";
+import { useParams } from 'react-router-dom';
 
 const Collection = () => {
   
@@ -33,7 +34,8 @@ const Collection = () => {
       <div className='grid-collection-template'>
         {
           data.map(card => (
-            <Link to={`/productdetails/`} key={card._id}>
+            <Link to={
+              `/productdetails/${card._id}`} key={card._id}>
               <CollectionCard card={card} key={card._id} />
             </Link>
           ))
