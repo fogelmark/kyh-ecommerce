@@ -5,9 +5,9 @@ import { BsCart3 } from "react-icons/bs";
 
 
 const ShoppingCart = () => {    
-  const [isToggled, setIsToggled] = useState(true);
+  const [isToggled, setIsToggled] = useState(false);
   const handleToggle = (e) => {
-      e.stopPropagation()
+    e.stopPropagation()
     setIsToggled(!isToggled);
     }
       
