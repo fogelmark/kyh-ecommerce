@@ -1,5 +1,5 @@
 import React from 'react'
-import ImagePlaceholder from '../assets/1920x300.svg'
+import ImagePlaceholder from '../../assets/1920x300.svg'
 
 
 

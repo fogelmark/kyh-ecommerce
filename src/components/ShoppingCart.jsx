@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { BsCart3 } from "react-icons/bs";
+import { CartContext } from "../contexts/CartContext";
+// import { ProductDetailContext } from "../contexts/ProductDetailContext";
 
 
 
 
-const ShoppingCart = () => {    
+
+const ShoppingCart = () => {
+
+  const { cartItems, addToCart } = useContext(CartContext) 
+
   const [isToggled, setIsToggled] = useState(false);
   const handleToggle = (e) => {
     e.stopPropagation()
@@ -13,7 +19,7 @@ const ShoppingCart = () => {
       
 return (
     <div className='shopping-cart-container' onClick={handleToggle}>
-      <span className="rounded-pill">1</span> 
+      <span className="rounded-pill">{cartItems.length}</span> 
          {
          isToggled 
          ? <>
@@ -41,8 +47,6 @@ return (
             </div> 
          }
        < BsCart3 size={30} /> 
-       
-        
     </div>
   )
 }

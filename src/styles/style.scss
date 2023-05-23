@@ -6,6 +6,7 @@
 @import "products";
 @import "productdetails";
 @import "shoppingcart";
+@import "loader";
 
 * {
   margin: 0;
@@ -20,6 +21,10 @@ a:focus,
 a:visited {
   text-decoration: none;
   color: #000;
+}
+
+body {
+  height: 100vh;
 }
 
 li {

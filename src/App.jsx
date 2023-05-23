@@ -10,7 +10,6 @@ import Login from './pages/Login'
 import Registration from './pages/Registration'
 import Footer from './components/Footer'
 import ProductDetails from './pages/ProductDetails.jsx'
-import ProductDetailsProvider from './contexts/ProductDetailContext'
 
 
 
@@ -34,11 +33,11 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route index element={<Home />} />
-        <Route path='product' element={<Product />} />
-        <Route path='contact' element={<Contact />} />
-        <Route path='login' element={<Login />} />
-        <Route path='register' element={<Registration />}/>
-        <Route path='productdetails/:productId' element={<ProductDetails />} />
+        <Route path='/product' element={<Product />} />
+        <Route path='/contact' element={<Contact />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Registration />}/>
+        <Route path='/productdetails/:productId' element={<ProductDetails />} />
       </Routes>
       <Footer />
     </div>
