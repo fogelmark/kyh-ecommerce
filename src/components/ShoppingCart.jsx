@@ -1,54 +1,76 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { BsCart3 } from "react-icons/bs";
 import { CartContext } from "../contexts/CartContext";
-// import { ProductDetailContext } from "../contexts/ProductDetailContext";
-
-
-
-
+import { FaTrash } from "react-icons/fa";
+import placeholder from '../assets/120x113.svg'
 
 const ShoppingCart = () => {
-
-  const { cartItems, addToCart } = useContext(CartContext) 
-
+  const { cartItems, totalQuantity, removeFromCart, clearCart, incrementQuantity, decrementQuantity } = useContext(CartContext);
   const [isToggled, setIsToggled] = useState(false);
+
   const handleToggle = (e) => {
-    e.stopPropagation()
+    e.stopPropagation();
     setIsToggled(!isToggled);
-    }
-      
-return (
-    <div className='shopping-cart-container' onClick={handleToggle}>
-      <span className="rounded-pill">{cartItems.length}</span> 
-         {
-         isToggled 
-         ? <>
-            <div className="expandable-cart">
-              <div> 
-                <p className="dropdown-top"> cart is empty </p>
+  };
+
+  const calculateTotal = () => {
+    let totalPrice = 0
+    cartItems.forEach(item => {
+      totalPrice = item.product.price * totalQuantity
+    })
+    return totalPrice
+  }
+
+  return (
+    <div className="shopping-cart-container">
+      <span className="rounded-pill">{totalQuantity}</span>
+      {isToggled ? (
+        <div className="expandable-cart">
+          {cartItems.length > 0 ? (
+            <>
+              {cartItems.map((item, index) => (
+              <div className="dropdown-top" key={index}>
+                <div className="cart-item-container">
+                  <div className="cart-image">
+                    <img src={item.product.imageURL} alt={item.product.imageURL} />
+                  </div>
+                  <div>
+                    <p>{item.product.name}</p>
+                    <small>{item.quantity}x {item.product.price} SEK</small>
+                  </div>
+                </div>
+
+                <div className='button-container'>
+                  <div role="group">
+                    <button onClick={() => decrementQuantity(index)}>-</button>
+                    <button onClick={() => incrementQuantity(index)}>+</button>
+                  </div>
+                  <FaTrash onClick={removeFromCart} />
+                </div>
               </div>
+              ))}
               <span className="divider"></span>
               <div className="dropdown-bottom">
                 <div className="price-info">
-                  <p>Total: 900</p>
+                  <p>Total: {calculateTotal()} SEK</p>
                   <small>incl. vat</small>
                 </div>
                 <div>
-                  <button>Clear Cart </button>
+                  <button onClick={clearCart}>Clear Cart</button>
                   <button>Checkout</button>
                 </div>
               </div>
-            </div>
-            
-           </>
-         : <div> 
-            <p></p> 
-            
-            </div> 
-         }
-       < BsCart3 size={30} /> 
+            </>
+          ) : (
+            <p className="empty-cart">Your cart is empty.</p>
+          )}
+        </div>
+      ) : (
+        <div></div>
+      )}
+      <BsCart3 onClick={handleToggle} size={30} />
     </div>
-  )
-}
+  );
+};
 
-export default ShoppingCart
+export default ShoppingCart;
