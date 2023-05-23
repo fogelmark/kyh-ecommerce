@@ -4,11 +4,17 @@ import App from './App.jsx'
 import './styles/style.scss'
 import { BrowserRouter } from 'react-router-dom'
 
+
+import CartProvider from './contexts/CartContext.jsx'
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
-    <App />
+    <CartProvider>
+        <App />
+    </CartProvider>
   </BrowserRouter>
-)
+);
+
 
 
 // För betyget godkänt (G) ska följande finnas med i eran lösning:

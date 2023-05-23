@@ -1,19 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import ProductDetailHero from '../components/ProductDetailsHero'
-import ProductDetailInfo from '../components/ProductDetailInfo'
-import ProductDetailDesc from '../components/ProductDetailDesc'
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
+import React from 'react'
+import ProductDetailInfo from '../components/products/ProductDetailInfo'
+import ProductDetailDesc from '../components/products/ProductDetailDesc'
+import ProductDetailHero from '../components/products/ProductDetailsHero';
 import ProductDetailsProvider from '../contexts/ProductDetailContext';
 
 const ProductDetails = () => {
-  // const { productId } = useParams();
 
 
 
   return (
     <div>
-      
       <ProductDetailHero />
       <ProductDetailsProvider>
         <ProductDetailInfo />
