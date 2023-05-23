@@ -29,10 +29,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 // ++ Ni ska använda er av react-router-dom för att kunna navigera mellan olika sidor.
 
 // TBD
-// Ni ska ha en kundvagn där man ska kunna lägga till produkter i. 
-// Man ska kunna ändra antalet produkter i kundvagnen.
-// Ni ska kunna lista upp hur många produkter som finns i kundvagnen.
-// Ni ska kunna lista upp en produkt på en separat sida där produkten ska visa information som namn, beskrivning, pris och bilder mm.
+// ++ Ni ska ha en kundvagn där man ska kunna lägga till produkter i. 
+// ++ Man ska kunna ändra antalet produkter i kundvagnen.
+// ++ Ni ska kunna lista upp hur många produkter som finns i kundvagnen.
+// ++ Ni ska kunna lista upp en produkt på en separat sida där produkten ska visa information som namn, beskrivning, pris och bilder mm.
 
 
 

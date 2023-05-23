@@ -25,7 +25,7 @@ p, small {
   position: absolute;
   top: 2.5rem;
   right: 0;
-  width: 400px;
+  width: 350px;
   height: fit-content;
   background-color: #fff;
   border: 1px solid #000;
@@ -36,15 +36,43 @@ p, small {
 }
 
 .dropdown-top {
-  text-align: center;
-  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .5rem;
+  color: #000;
+}
+
+.cart-item-container {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+}
+
+.cart-image {
+  width: calc(120px / 2);
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.items-p {
+  // text-align: center;
+  padding: .3rem;
 }
 
 .dropdown-bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: .5rem;
   button {
     cursor: pointer;
     padding: .5rem;
@@ -63,4 +91,9 @@ p, small {
 
 .divider {
   border: 1px solid #cecece;
+}
+
+.empty-cart {
+  padding: 1rem;
+  text-align: center;
 }

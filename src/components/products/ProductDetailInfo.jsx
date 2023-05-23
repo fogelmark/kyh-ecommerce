@@ -11,7 +11,7 @@ const StarIcon = ({ filled }) => (filled ? <FaStar className="star" /> : <FaRegS
 const ProductDetailInfo = () => {
 
     const { data, quantity, incrementQuantity, decrementQuantity } = useContext(ProductDetailContext)
-    console.log(data);
+    // console.log(data);
     const { addToCart } = useContext(CartContext)
 
     if (!data) {

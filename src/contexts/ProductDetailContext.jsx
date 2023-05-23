@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import Loader from '../components/loader/Loader';
 
 export const ProductDetailContext = createContext();
 
@@ -46,7 +47,7 @@ const ProductDetailsProvider = ({ children }) => {
 
   return (
     <ProductDetailContext.Provider value={value}>
-      {loading ? <p>Loading...</p> : children}
+      {loading ? <Loader /> : children}
     </ProductDetailContext.Provider>
   );
 };

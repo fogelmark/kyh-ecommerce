@@ -4,7 +4,6 @@ import { BsSearch, BsCart3 } from "react-icons/bs";
 import { NavLink } from 'react-router-dom';
 import Registration from '../pages/Registration';
 import ShoppingCart from './ShoppingCart';
-// import ProductDetailsProvider from '../contexts/ProductDetailContext';
 
 const Navbar = () => {
 
