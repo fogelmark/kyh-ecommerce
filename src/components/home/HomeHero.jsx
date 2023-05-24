@@ -8,12 +8,7 @@ import HeroImage2 from '../../assets/home-hero-image-2.jpg'
 
 
 
-const HomeHero = ({product}) => {
-
-  // Från product props får man ut alla produkter
-  // console.log(product[1].imageURL);
-
-  
+const HomeHero = () => {
   
   return (
     <div className='home-hero-container'>

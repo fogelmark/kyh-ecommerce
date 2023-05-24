@@ -153,7 +153,6 @@
     justify-content: center;
     align-items: center;
     padding: 3rem;
-    gap: 2rem;
     background-color: #fff;
     grid-area: 1 / 2;
     p:first-of-type {
@@ -249,10 +248,11 @@
     padding: 0 2rem;
     width: 80%;
   }
-  .btn-subscribe {
+  .button-subscribe {
     border: 0;
     border-radius: 2rem;
     padding: 1rem;
+    width: 50%;
     cursor: pointer;
     text-transform: uppercase;
     letter-spacing: 3.5px;
