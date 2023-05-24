@@ -61,7 +61,7 @@ const CartProvider = ({ children }) => {
     setCartItems(updatedCartItems);
   };
   
-
+  // Ta bort quantity
   const removeFromCart = (index) => {
     const updatedCartItems = [...cartItems];
     updatedCartItems.splice(index, 1);
