@@ -29,35 +29,73 @@ exports.createNewUser = async (req, res) =>{
 
 }
 
+// exports.loginUser = (req, res) => {
+//   const { email, password } = req.body;
 
-exports.loginUser = (req, res) => {
-    const {email, password} = req.body
+//   if (!email || !password) {
+//     return res.status(400).json({ message: 'You need to enter both email and password' });
+//   }
 
-    if(!email || !password){
-        return res.status(400).json({message: 'You need to enter both email and password'})
+//   User.findOne({ email })
+//     .then(user => {
+//       if (!user) {
+//         return res.status(401).json({ message: 'Incorrect credentials' });
+//       }
+
+//       bcrypt.compare(password, user.passwordHash, (err, result) => {
+//         if (err) {
+//           return res.status(500).json({ message: 'Something went wrong when decrypting the password' });
+//         }
+
+//         if (!result) {
+//           return res.status(401).json({ message: 'Incorrect credentials' });
+//         }
+
+//         const token = auth.generateToken(user);
+//         res.status(200).json({ token, user });
+//       });
+//     })
+//     .catch(error => {
+//       console.error('Login error:', error);
+//       res.status(500).json({ message: 'Server error' });
+//     });
+// };
+
+exports.loginUser = async (req, res) => {
+  const { email, password } = req.body;
+
+  if (!email || !password) {
+    return res.status(400).json({ message: 'You need to enter both email and password' });
+  }
+
+  try {
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(401).json({ message: 'Incorrect credentials' });
     }
-    
-    User.findOne({email})
-    .then(data =>{
-        if(!data){
-            return res.status(401).json({message: 'incorrect credentials'})
-        }
 
-        bcrypt.compare(password, data.passwordHash, (err, result) => {
-            if(err){
-                return res.status(500).json({message: 'something went wrong when decrypting the password'})
-            }
+    bcrypt.compare(password, user.passwordHash, (err, result) => {
+      if (err) {
+        return res.status(500).json({ message: 'Something went wrong when decrypting the password' });
+      }
 
-            if(!result){
-                return res.status(401).json({message: 'Incorrect credentials'})
-            }
+      if (!result) {
+        return res.status(401).json({ message: 'Incorrect credentials' });
+      }
 
-            res.status(200).json({token: auth.generateToken(data)})
-        })
+      const token = auth.generateToken(user);
+      res.status(200).json({ token, user });
+    });
+  } catch (error) {
+    console.error('Login error:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+};
 
 
-    })
-}
+
+
 
 exports.getAllUsers = (req, res) =>{
     User.find()
@@ -70,26 +108,6 @@ exports.getAllUsers = (req, res) =>{
         })
     })
 }
-
-
-// exports.getUserById = (req, res) => {
-//     const { _id, displayName } = req.userData;
-//     User.findById(_id)
-//     .then(user =>{
-//         res.status(200).json(user)
-        
-//     })
-// }
-
-// exports.getUserById = async (req, res) =>{
-
-//     const user = await User.findById(req.params.id)
-    
-//     if(!user){
-//         return res.status(404).json({message: 'Could not find that user'})
-//     }
-//     res.status(200).json(user) 
-// }
 
 exports.getUserById = async (req, res) => {
     try {

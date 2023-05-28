@@ -6,11 +6,14 @@ import { BrowserRouter } from 'react-router-dom'
 
 
 import CartProvider from './contexts/CartContext.jsx'
+import UserContextProvider from './contexts/UserContext.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <CartProvider>
+      <UserContextProvider>
         <App />
+      </UserContextProvider>
     </CartProvider>
   </BrowserRouter>
 );
@@ -27,8 +30,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 // (titta på designen på vad ni kan tänkas behöva ha på era produkter)
 // ++ Ni ska använda er av Redux eller Context för att lagra information i applikationen under användning.
 // ++ Ni ska använda er av react-router-dom för att kunna navigera mellan olika sidor.
-
-// TBD
 // ++ Ni ska ha en kundvagn där man ska kunna lägga till produkter i. 
 // ++ Man ska kunna ändra antalet produkter i kundvagnen.
 // ++ Ni ska kunna lista upp hur många produkter som finns i kundvagnen.
@@ -38,7 +39,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
 // För betyget väl godkänt (VG):
 // Ni ska bygga upp eventuella andra sidor som behövs men inte finns med i designfilen, dessa ska följa samma stil och tema.
-// ++ Ni ska kunna logga in och registrera en användare. 
+// ++ Ni ska kunna logga in och registrera en användare.
 // Om användaren är inloggad ska "Login" länken i toppmenyn bytas ut mot en länk som går till en "user-profile" sida.
 // Ni ska kunna spara ner kundvagnen som en order i databasen, men bara om användaren är inloggad.
 // Man ska som användare kunna se sina aktuella ordrar och historiska ordrar på en separat sida om man är inloggad.

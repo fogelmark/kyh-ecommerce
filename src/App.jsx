@@ -1,6 +1,4 @@
-import {useEffect, useState} from 'react'
 import { Route, Routes } from 'react-router-dom'
-import axios from 'axios'
 
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
@@ -10,23 +8,9 @@ import Login from './pages/Login'
 import Registration from './pages/Registration'
 import Footer from './components/Footer'
 import ProductDetails from './pages/ProductDetails.jsx'
-
-
+import UserProfile from './pages/UserProfile'
 
 const App = () => {
-
-    useEffect(() => {
-    const token = localStorage.getItem('token')
-    // console.log(token)
-    if(token) {
-      axios.get('http://localhost:8080/api/user/')
-        .then(res => {
-          // console.log(res)
-        })
-    }
-  }, [])
-
-  const [user, setUser] = useState(null)
 
   return (
     <div>
@@ -38,6 +22,7 @@ const App = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Registration />}/>
         <Route path='/productdetails/:productId' element={<ProductDetails />} />
+        <Route path='/userprofile' element={<UserProfile />} />
       </Routes>
       <Footer />
     </div>
