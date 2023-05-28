@@ -38,10 +38,15 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
 
 // För betyget väl godkänt (VG):
-// Ni ska bygga upp eventuella andra sidor som behövs men inte finns med i designfilen, dessa ska följa samma stil och tema.
 // ++ Ni ska kunna logga in och registrera en användare.
-// Om användaren är inloggad ska "Login" länken i toppmenyn bytas ut mot en länk som går till en "user-profile" sida.
+// ++ Om användaren är inloggad ska "Login" länken i toppmenyn bytas ut mot en länk som går till en "user-profile" sida.
+// ++ Man ska kunna logga ut en användare
+
+// Ni ska bygga upp eventuella andra sidor som behövs men inte finns med i designfilen, dessa ska följa samma stil och tema.
+
 // Ni ska kunna spara ner kundvagnen som en order i databasen, men bara om användaren är inloggad.
 // Man ska som användare kunna se sina aktuella ordrar och historiska ordrar på en separat sida om man är inloggad.
-// Man ska kunna logga ut en användare
+
+
+
 // Individuell rapport

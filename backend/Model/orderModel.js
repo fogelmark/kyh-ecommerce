@@ -1,21 +1,38 @@
 const Order = require('../Schema/orderSchema')
 
-exports.createOrder = async (req, res)=> {
-    const { orderRader } = req.body
+// CREATE
 
-    if(!orderRader){
-        return res.status(400).json({message: 'yuor need to fill all the fields'})
+exports.createNewOrder = async (req, res) => {
+    const { orderRows } = req.body
+
+    if(!orderRows) {
+        return res.status(400).json({
+            message: "you need to enter all the fields"
+        })
     }
+    try {
+        const data = await Order.create({
+            orderRows,
+            userId: req.userId
+        })
+      res.status(201).json( data )
 
-    const order = await Order.create({orderRader, user: req.userId})
-
-    if(!order){
-        return res.status(500).json({message: 'something went wrong '})
-
+    } catch (err) {
+        return res.status(500).json({
+            message: "something went wrong when createing the order",
+            err: err.message,
+        })
     }
-
-    res.status(200).json(order)
 }
+
+
+// // GET ALL orders for logged in user
+
+// exports.getOrders = async (req, res) => {
+//     const orders = await Order.find({ userId: req.userId })
+//     res.status(200).json(orders)
+// }
+
 
 
 exports.getMyOrder = async (req, res) => {
