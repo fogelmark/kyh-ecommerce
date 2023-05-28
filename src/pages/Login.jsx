@@ -1,11 +1,11 @@
-import  { useState } from 'react'
+import  { useContext, useEffect, useState } from 'react'
 import axios from 'axios'
-import {useNavigate, Navigate, Link} from 'react-router-dom'
-
+import {useNavigate, Link} from 'react-router-dom'
+import { UserContext } from '../contexts/UserContext'
 
 const Login = () => {
-
   const navigate = useNavigate()
+  const { setUser } = useContext(UserContext)
 
   const [formData, setFormData] = useState({
     email: '',
@@ -13,33 +13,28 @@ const Login = () => {
   })
 
   const handleChange = e => {
-    setFormData(preData => {
-      return {
-        ...preData,
-        [e.target.name]: e.target.value
-      }
-    })
+    setFormData(prevState => ({
+      ...prevState,
+      [e.target.name]: e.target.value
+    }))
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    // console.log(formData);
-
-
-    const res = await axios.post('http://localhost:8080/api/user/login', formData)
-    console.log(res);
-
-    setFormData(initState)
-    if(res){
+    try {
+      const res = await axios.post('http://localhost:8080/api/user/login', formData)
+      const user = res.data.user.firstName;
+      setUser(user)
+      localStorage.setItem('token', JSON.stringify(res.data.token))
+      localStorage.setItem('user', JSON.stringify(user))
       navigate('/')
+    } catch (error) {
+      console.error('Login error:', error)
     }
-  }
-  
-
+  };
 
   return (
-
     <div className='create-form'>
       <p className='form-text'>Please Login To Your Account</p>
       <form onSubmit={handleSubmit}>
