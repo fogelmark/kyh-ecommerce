@@ -14,7 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <UserContextProvider>
         <App />
       </UserContextProvider>
-    </CartProvider>
+      </CartProvider>
   </BrowserRouter>
 );
 

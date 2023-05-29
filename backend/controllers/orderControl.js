@@ -7,10 +7,10 @@ const auth = require('../authentication/auth')
 
 router.post('/add', auth.verifyToken, createNewOrder)
 // router.get('/minaOrder', auth.verifyToken, getMyOrder )
-router.get('/myOrder', auth.verifyToken, getMyOrder )
+router.get('/myOrders', auth.verifyToken, getMyOrder )
 
 // bara admin kan se alla orders
-router.get('/allOrders', getOrders )
+router.get('/allOrders',  getOrders )
 // router.get('/allOrders',auth.verifyToken, auth.checkAdmin, getOrders )
 
 module.exports = router;
