@@ -8,7 +8,7 @@ const Product = () => {
   return (
     <div>
       <ProductContextProvider>
-      <Products />
+         <Products />
       </ProductContextProvider>
     </div>
   )

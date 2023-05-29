@@ -1,6 +1,5 @@
 import { createContext, useState, useEffect } from 'react'
 import axios from 'axios'
-
 export const ProductContext = createContext()
 
 const ProductContextProvider = ({ children, limit }) => {
@@ -21,6 +20,8 @@ const ProductContextProvider = ({ children, limit }) => {
 
     fetchData();
   }, [limit]);
+
+  console.log(data)
 
   const loadMoreProducts = async () => {
     try {

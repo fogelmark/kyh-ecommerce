@@ -9,6 +9,7 @@ import Registration from './pages/Registration'
 import Footer from './components/Footer'
 import ProductDetails from './pages/ProductDetails.jsx'
 import UserProfile from './pages/UserProfile'
+import OrderContextProvider from './contexts/OrderContext'
 
 const App = () => {
 
@@ -22,7 +23,11 @@ const App = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Registration />}/>
         <Route path='/productdetails/:productId' element={<ProductDetails />} />
-        <Route path='/userprofile' element={<UserProfile />} />
+        <Route path='/userprofile' element={
+          <OrderContextProvider>
+             <UserProfile />
+          </OrderContextProvider>
+           } />
       </Routes>
       <Footer />
     </div>

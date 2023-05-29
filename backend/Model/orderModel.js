@@ -15,7 +15,10 @@ exports.createNewOrder = async (req, res) => {
             orderRows,
             userId: req.userId
         })
-      res.status(201).json( data )
+    //   res.status(201).json(data)
+      res.status(201).json({ userId: data.userId })
+
+
 
     } catch (err) {
         return res.status(500).json({
@@ -37,7 +40,7 @@ exports.createNewOrder = async (req, res) => {
 
 exports.getMyOrder = async (req, res) => {
 
-    const orders = await Order.find({user: req.userId})
+    const orders = await Order.find({userId: req.userId})
 
     if(!orders){
         return res.status(404).json({message: 'Could not fint the orders'})

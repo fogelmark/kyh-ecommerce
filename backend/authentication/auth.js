@@ -13,6 +13,7 @@ exports.verifyToken = (req, res, next) => {
         const token = req.headers.authorization.split(' ')[1];
         req.userId = jwt.verify(token, secretKey)._id
         next()
+        
     } catch {
         return res.status(401).json({
             message: 'Admin access required'
@@ -20,6 +21,7 @@ exports.verifyToken = (req, res, next) => {
         
     }
 }
+
 
 
 // för att logga in som admin  email: mia@.com - password: mia
