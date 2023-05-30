@@ -1,20 +1,14 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
-// import { useParams } from 'react-router-dom';
-import { UserContext } from './UserContext/'
+
 export const OrderContext = createContext();
 
-
-
 const OrderContextProvider = ({ children }) => {
+
   const [orders, setOrders] = useState([]);
-
-const { user } = useContext(UserContext) 
-   
- const token = localStorage.getItem('token') 
-
+  
+  const token = localStorage.getItem('token') 
   const parse = JSON.parse(token)
- console.log(parse)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,7 +25,10 @@ const { user } = useContext(UserContext)
         );
 
         setOrders(result.data);
+        console.log(result)
         console.log(result.data);
+        console.log(result.data[0].orderRows);
+        console.log(orders)
       } catch (error) {
         console.log("Error fetching data:", error);
       }
@@ -41,27 +38,51 @@ const { user } = useContext(UserContext)
   }, []);
 
 
-  // const { orderId } = useParams();
+  const submitOrder = (cart) => {
+    
 
-  // useEffect(() => {
-  //   const getProductById = async () => {
-  //     try {
-  //       const result = await axios.get(`http://localhost:8080/api/user/${orderId}`);
-  //       setData(result.data);
-  //       setLoading(false);
-  //     } catch (error) {
-  //       console.log('Error fetching data:', error);
-  //     }
-  //   };
+    const token = localStorage.getItem('token') 
+    const parse = JSON.parse(token)
 
-  //   getProductById();
-  // }, [orderId]);
+    // const getOrderRows = () => {
+    //   const orderRows = orders.map((order) => order.orderRows);
+    //   console.log(orderRows[0])
+    //   console.log(orderRows)
+
+    //   // return orderRows.flat();
+      
+    // }   
+    // getOrderRows()
+    const orderRows = cart.map(item => {
+      return { 
+        product: item.product._id,
+        quantity: item.quantity
+      }
+    })
+    
+    const fetchData = async () => {
+       console.log(orderRows)
+        try {
+          const result = await axios.post(`http://localhost:8080/api/order/add`, {orderRows},
+          {
+              headers: {
+                Authorization: `Bearer ${parse}`
+              }
+            })
+            // setOrders(result.data)
+            console.log(result.data)
+          } catch (error) {
+          console.log("Error fetching data:", error);
+        }
+      };
+      fetchData();
+  }
+  
 
 
-
-
-  const value = {
+ const value = {
     orders,
+    submitOrder
   };
 
   return (
@@ -74,73 +95,3 @@ const { user } = useContext(UserContext)
 export default OrderContextProvider;
 
 
-
-
-// import { createContext, useEffect, useState} from "react";
-// import axios from "axios";
-
-
-
-
-// export const OrderContext = createContext()
-
-// const OrderContextProvider = ({ children }) => {
-
-// const [orders, setOrders] = useState([])
-
-//   useEffect(() => {
-//         const fetchData = async () => {
-//             try {
-//               const token = localStorage.getItem('token')
-//               // console.log(token)
-          
-//          const result = await axios.get(`http://localhost:8080/api/order/allOrders`, 
-//          {
-//           headers: {
-//             Authorization: token,
-//           }
-//         }
-//         )
-            
-//             // setOrders(prevData => [...prevData, ...result.data]);
-//             setOrders(result.data)
-            
-//             // console.log(result.data[0].orderRows[0])
-//             console.log(result.data)
-//             } catch (error ) {
-//                 console.log('Error fetching data:', error);
-//             }
-//           }
-//           fetchData();
-          
-//      }, [])
-
-
-     
-// // const myOrder = async () => {
-// //   try{
-// //   const result = await axios.get(`http://localhost:8080/api/order/myOrder`, {
-// //     headers: {
-// //       Authorization: verifyToken()
-// //     }
-// //   });
-// //   setData(result.data);
-// //   console.log(result.data);
-// //   }catch (error) {
-// //     console.log('Error fetching data:', error);
-// //   }
-// // }
-     
-//   const value = {
-//       orders,
-//       // myOrder
-//     }
-  
-//     return (
-//       <OrderContext.Provider value={value}>
-//         { children }
-//       </OrderContext.Provider>
-//     )
-//   }
-  
-//   export default OrderContextProvider

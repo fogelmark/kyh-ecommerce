@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { NavLink, Link } from 'react-router-dom'
 import CollectionCard from './CollectionCard'
 import { ProductContext } from "../../contexts/ProductContext";
-import { useParams } from 'react-router-dom';
 
 const Collection = () => {
   

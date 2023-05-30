@@ -56,7 +56,7 @@ const Contact = () => {
 
         try {
           const res = await axios.post('http://localhost:8080/api/contact/add', formData);
-          console.log(res);
+          // console.log(res);
           setFormData(initState);
         } catch (error) {
           console.error('Axios error:', error.message);

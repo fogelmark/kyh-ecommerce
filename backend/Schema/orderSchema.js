@@ -8,7 +8,7 @@ const orderRowSchema = mongoose.Schema({
     })
 
 const orderSchema = new Schema({
-  userId:         { type: mongoose.Types.ObjectId },
+  userId:       { type: mongoose.Types.ObjectId },
   orderRows:    { type: [orderRowSchema] }
 })
 

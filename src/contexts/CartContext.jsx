@@ -1,8 +1,16 @@
 import { createContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+// import Checkout from '../pages/Checkout';
+import axios from 'axios';
+
 
 export const CartContext = createContext();
 
+
+
 const CartProvider = ({ children }) => {
+
+  const navigate = useNavigate()
   const [cartItems, setCartItems] = useState([]);
   const [totalQuantity, setTotalQuantity] = useState(0);
   
@@ -72,17 +80,25 @@ const CartProvider = ({ children }) => {
     setCartItems([]);
   };
 
-  // const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+  const checkOut = () => {
+
+    navigate('/checkout')
+
+}
+
+ 
+ 
 
   const value = {
     cartItems,
     addToCart,
     removeFromCart,
     clearCart,
-    // cartCount,
+   
     decrementQuantity,
     incrementQuantity,
-    totalQuantity
+    totalQuantity,
+    checkOut,
   };
 
   return (

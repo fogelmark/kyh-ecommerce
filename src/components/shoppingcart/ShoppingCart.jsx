@@ -5,7 +5,7 @@ import { FaTrash } from "react-icons/fa";
 import CartProduct from "./CartProduct";
 
 const ShoppingCart = () => {
-  const { cartItems, totalQuantity, removeFromCart, clearCart, incrementQuantity, decrementQuantity } = useContext(CartContext);
+  const { cartItems, totalQuantity, removeFromCart, clearCart, incrementQuantity, decrementQuantity, checkOut } = useContext(CartContext);
   const [isToggled, setIsToggled] = useState(false);
 
   // const handleToggle = () => {
@@ -35,7 +35,7 @@ const ShoppingCart = () => {
        </div>
        <div className="d-flex gap-2">
          <button className="btn btn-cart clear" onClick={clearCart}>Clear Cart</button>
-         <button className="btn btn-cart info" >Checkout</button>
+         <button className="btn btn-cart info" onClick={checkOut} >Checkout</button>
         </div>
       </div>
     </div>
