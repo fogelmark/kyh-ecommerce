@@ -10,6 +10,7 @@ import Footer from './components/Footer'
 import ProductDetails from './pages/ProductDetails.jsx'
 import UserProfile from './pages/UserProfile'
 import OrderContextProvider from './contexts/OrderContext'
+import Checkout from './pages/Checkout'
 
 const App = () => {
 
@@ -28,6 +29,15 @@ const App = () => {
              <UserProfile />
           </OrderContextProvider>
            } />
+        
+        <Route path='/checkout' element={
+          <OrderContextProvider>
+            <Checkout /> 
+        </OrderContextProvider>
+           } />
+
+
+
       </Routes>
       <Footer />
     </div>
