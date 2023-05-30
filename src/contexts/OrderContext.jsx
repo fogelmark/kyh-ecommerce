@@ -25,10 +25,7 @@ const OrderContextProvider = ({ children }) => {
         );
 
         setOrders(result.data);
-        console.log(result)
-        console.log(result.data);
-        console.log(result.data[0].orderRows);
-        console.log(orders)
+     
       } catch (error) {
         console.log("Error fetching data:", error);
       }
