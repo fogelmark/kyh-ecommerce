@@ -13,10 +13,7 @@ const OrderContextProvider = ({ children }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // const token = verifyToken();
-
-        const result = await axios.get(
-          `http://localhost:8080/api/order/myOrders`,
+       const result = await axios.get(`http://localhost:8080/api/order/myOrders`,
           {
             headers: {
               Authorization: `Bearer ${parse}`
@@ -37,19 +34,9 @@ const OrderContextProvider = ({ children }) => {
 
   const submitOrder = (cart) => {
     
-
     const token = localStorage.getItem('token') 
     const parse = JSON.parse(token)
 
-    // const getOrderRows = () => {
-    //   const orderRows = orders.map((order) => order.orderRows);
-    //   console.log(orderRows[0])
-    //   console.log(orderRows)
-
-    //   // return orderRows.flat();
-      
-    // }   
-    // getOrderRows()
     const orderRows = cart.map(item => {
       return { 
         product: item.product._id,
@@ -60,8 +47,9 @@ const OrderContextProvider = ({ children }) => {
     const fetchData = async () => {
        console.log(orderRows)
         try {
-          const result = await axios.post(`http://localhost:8080/api/order/add`, {orderRows},
-          {
+          const result = await axios.post(`http://localhost:8080/api/order/add`, 
+             {orderRows},
+             {
               headers: {
                 Authorization: `Bearer ${parse}`
               }
@@ -75,9 +63,7 @@ const OrderContextProvider = ({ children }) => {
       fetchData();
   }
   
-
-
- const value = {
+  const value = {
     orders,
     submitOrder
   };

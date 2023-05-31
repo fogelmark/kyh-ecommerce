@@ -1,12 +1,7 @@
 import { createContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import Checkout from '../pages/Checkout';
-import axios from 'axios';
-
 
 export const CartContext = createContext();
-
-
 
 const CartProvider = ({ children }) => {
 
@@ -69,7 +64,6 @@ const CartProvider = ({ children }) => {
     setCartItems(updatedCartItems);
   };
   
-  // Ta bort quantity
   const removeFromCart = (index) => {
     const updatedCartItems = [...cartItems];
     updatedCartItems.splice(index, 1);
