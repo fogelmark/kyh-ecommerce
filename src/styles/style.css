@@ -761,9 +761,27 @@
 .checkout-container {
   max-width: 50%;
   border: 1px solid;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: start;
+  justify-content: center;
   margin: 0 auto;
+  margin-bottom: 1000px;
+}
+
+.orders {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.active-order {
+  border: 1px solid;
+}
+
+.historic-orders {
+  margin: 35px 0 35px 0;
 }
 
 * {

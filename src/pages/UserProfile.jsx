@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { OrderContext } from '../contexts/OrderContext'
+import ShoppingCart from '../components/shoppingcart/ShoppingCart'
 
 const UserProfile = () => {
   const { orders } = useContext(OrderContext)
@@ -12,7 +13,14 @@ const UserProfile = () => {
   }
 
   return (
+    
     <div className="orders">
+     <div className='active-order'>
+      {
+       <ShoppingCart />
+      }
+     </div>
+     <div className='historic-orders'>
       {orders.map(order => (
         <div key={order._id}>
           <h3>Order ID: {order._id}</h3>
@@ -27,6 +35,7 @@ const UserProfile = () => {
           </ul>
         </div>
       ))}
+      </div>
     </div>
   );
 }

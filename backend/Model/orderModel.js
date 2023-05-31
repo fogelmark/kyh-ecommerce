@@ -28,16 +28,6 @@ exports.createNewOrder = async (req, res) => {
     }
 }
 
-
-// // GET ALL orders for logged in user
-
-// exports.getOrders = async (req, res) => {
-//     const orders = await Order.find({ userId: req.userId })
-//     res.status(200).json(orders)
-// }
-
-
-
 exports.getMyOrder = async (req, res) => {
 
     const orders = await Order.find({userId: req.userId})

@@ -1,7 +1,5 @@
-import { useContext, useState, useEffect } from "react";
-// import { BsCart3 } from "react-icons/bs";
+import { useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
-// import { FaTrash } from "react-icons/fa";
 import CartProduct from "../components/shoppingcart/CartProduct";
 import { OrderContext }  from "../contexts/OrderContext";
 
@@ -10,7 +8,7 @@ const Checkout = () => {
    const { orders , submitOrder } = useContext(OrderContext)
 
     const { cartItems, totalQuantity, removeFromCart, clearCart, incrementQuantity, decrementQuantity} = useContext(CartContext);
-    // const [isToggled, setIsToggled] = useState(false);
+    console.log(cartItems)
   
      const calculateTotal = () => {
       let totalPrice = 0

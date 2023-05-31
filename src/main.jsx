@@ -44,7 +44,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
 // Ni ska bygga upp eventuella andra sidor som behövs men inte finns med i designfilen, dessa ska följa samma stil och tema.
 
-// Ni ska kunna spara ner kundvagnen som en order i databasen, men bara om användaren är inloggad.
+// ++ Ni ska kunna spara ner kundvagnen som en order i databasen, men bara om användaren är inloggad.
 // Man ska som användare kunna se sina aktuella ordrar och historiska ordrar på en separat sida om man är inloggad.
 
 
