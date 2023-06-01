@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import  { useState } from 'react'
 import { checkIfEmpty } from './Validation'
-import {useNavigate, Navigate} from 'react-router-dom'
+import {useNavigate } from 'react-router-dom'
 
 const initState = {
   firstName: '',
@@ -156,7 +156,7 @@ const Registration = () => {
           <p className='error-text'>{error.city}</p>
         </div>
         <div className='form-group right'>
-          <label htmlFor="mobile">Mobile</label>
+          <label htmlFor="mobile">Mobile (optional)</label>
           <input type="text" name='mobile' className='input' id='mobile' value={formData.mobile} onChange={handleChaneInput} />
           <p className='error-text'>{error.mobile}</p>
         </div>

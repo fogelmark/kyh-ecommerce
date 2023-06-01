@@ -8,7 +8,6 @@ const UserProfile = () => {
   console.log(orders)
 
   if (!orders) {
-    // Handle the case where data is not yet available
     return <div>Loading...</div>
   }
 
