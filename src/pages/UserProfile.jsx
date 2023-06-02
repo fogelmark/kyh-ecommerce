@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { OrderContext } from '../contexts/OrderContext'
 import ShoppingCart from '../components/shoppingcart/ShoppingCart'
+import ShoppingCartUserProfile from '../components/shoppingcart/ShoppingCartUserProfile'
 
 const UserProfile = () => {
   const { orders } = useContext(OrderContext)
@@ -16,7 +17,7 @@ const UserProfile = () => {
     <div className="orders">
      <div className='active-order'>
       {
-       <ShoppingCart />
+       <ShoppingCartUserProfile />
       }
      </div>
      <div className='historic-orders'>

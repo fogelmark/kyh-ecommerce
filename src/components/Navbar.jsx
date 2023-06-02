@@ -40,6 +40,9 @@ const Navbar = () => {
         <li>
           <NavLink to='/contact'>CONTACT</NavLink>
         </li>
+        <li>
+          <NavLink to='/aboutus'>ABOUT US</NavLink>
+        </li>
         {user ? (
           <>
           <NavLink to='/userprofile'>

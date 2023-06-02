@@ -3,10 +3,16 @@ import { BsCart3 } from "react-icons/bs";
 import { CartContext } from "../../contexts/CartContext";
 import { FaTrash } from "react-icons/fa";
 import CartProduct from "./CartProduct";
+import CartProductUserProfile from "./CartProductUserProfile";
 
-const ShoppingCart = () => {
+const ShoppingCartUserProfile = () => {
   const { cartItems, totalQuantity, removeFromCart, clearCart, incrementQuantity, decrementQuantity, checkOut } = useContext(CartContext);
   const [isToggled, setIsToggled] = useState(false);
+
+  // const handleToggle = () => {
+  //   // e.stopPropagation();
+  //   setIsToggled(!isToggled);
+  // };
 
   const calculateTotal = () => {
     let totalPrice = 0
@@ -17,11 +23,12 @@ const ShoppingCart = () => {
   }
 
   return (
-    <div onClick={e => e.stopPropagation()}>
-      {cartItems.length < 1 && (
+    // <div onClick={e => e.stopPropagation()}>
+        <div>
+      {/* {cartItems.length < 1 && (
         <div className="p-2 text-center">Your cart is empty.</div>
-        )}
-      {cartItems.map((item, index) => <CartProduct key={index + item.product._id} item={item} index={index} />)}
+        )} */}
+      {cartItems.map((item, index) => <CartProductUserProfile key={index + item.product._id} item={item} index={index} />)}
       <div className="dropdown-divider"></div>
       <div className="d-flex justify-content-between align-items-center p-2">
        <div className="price-info">
@@ -29,8 +36,8 @@ const ShoppingCart = () => {
          <small className='text-muted'>incl. vat</small>
        </div>
        <div className="d-flex gap-2">
-         <button className="btn btn-cart clear" onClick={clearCart}>Clear Cart</button>
-         <button className="btn btn-cart info" onClick={checkOut}>Checkout</button>
+         {/* <button className="btn btn-cart clear" onClick={clearCart}>Clear Cart</button>
+         <button className="btn btn-cart info" onClick={checkOut} >Checkout</button> */}
         </div>
       </div>
     </div>
@@ -38,4 +45,4 @@ const ShoppingCart = () => {
 
 };
 
-export default ShoppingCart;
+export default ShoppingCartUserProfile;
