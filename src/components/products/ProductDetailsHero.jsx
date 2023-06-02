@@ -1,5 +1,5 @@
 import React from 'react'
-import ImagePlaceholder from '../../assets/1920x300.svg'
+import details_header from '../../assets/details-header.jpg'
 
 
 
@@ -8,7 +8,7 @@ const ProductDetailHero = () => {
     return (
         <div className='product-details-hero'>
             <div className='hero-image'>
-                <img src={ImagePlaceholder} alt="Placeholder" />
+                <img src={details_header} alt="Placeholder" />
             </div>
         </div>
     )

@@ -20,7 +20,10 @@ const Home = () => {
         <HomeSale />
       </ProductContextProvider>
 
-      <TopSellers />
+      <ProductContextProvider>
+        <TopSellers />
+      </ProductContextProvider>
+
       <NewsLetter />
     </div>
   )

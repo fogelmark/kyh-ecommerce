@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const HomeSaleAd = () => {
   return (
@@ -6,8 +7,8 @@ const HomeSaleAd = () => {
       <p>UP FOR SALE</p>
       <h2>50% OFF</h2>
       <p>Get The Best Price!</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, vero!</p>
-      <p>Discover More</p>
+      <p>Hurry up before the sale ends!</p>
+      <Link to='/product'>Discover More</Link>
     </div>
   )
 }

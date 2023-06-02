@@ -3,6 +3,7 @@ import ProductDetailInfo from '../components/products/ProductDetailInfo'
 import ProductDetailDesc from '../components/products/ProductDetailDesc'
 import ProductDetailHero from '../components/products/ProductDetailsHero';
 import ProductDetailsProvider from '../contexts/ProductDetailContext';
+import ProductContextProvider from '../contexts/ProductContext';
 
 const ProductDetails = () => {
 
@@ -11,10 +12,12 @@ const ProductDetails = () => {
   return (
     <div>
       <ProductDetailHero />
-      <ProductDetailsProvider>
-        <ProductDetailInfo />
-        <ProductDetailDesc />
-      </ProductDetailsProvider>
+      <ProductContextProvider>
+        <ProductDetailsProvider>
+          <ProductDetailInfo />
+          <ProductDetailDesc />
+        </ProductDetailsProvider>
+      </ProductContextProvider>
     </div>
   )
 }

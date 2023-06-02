@@ -60,16 +60,16 @@ const ProductDetailInfo = () => {
                 <p>5.0 (25 reviews)</p>
             </div>
             <div className="price">
-                <span>{data.price}</span>
+                <span>{data.price},00 SEK</span>
             </div>
             <div className="quantity">
                 <button className="quantity-button" onClick={decrementQuantity}>-</button>
                 <span className='quantity-number'>{quantity}</span>
                 <button className="quantity-button" onClick={incrementQuantity}>+</button>
-                <button onClick={handleAddToCart} className="add-to-cart-button">Add to Cart <BsCart3 className='cart'/></button>
+                <button onClick={handleAddToCart} className="button button-primary" style={{marginLeft: '1rem'}}>Add to Cart <BsCart3 className='cart'/></button>
             </div>
-            <div className="action-buttons">
-            </div>
+            {/* <div className="action-buttons">
+            </div> */}
             <button className="wishlist-button">Add to Wishlist</button>
             <p className="category">Category: Clothes</p>
           </div>

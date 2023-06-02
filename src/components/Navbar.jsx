@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { FaAdn } from "react-icons/fa";
+import { FaTshirt } from "react-icons/fa";
 import { BsSearch, BsCart3 } from "react-icons/bs";
 import { NavLink } from 'react-router-dom';
-import Registration from '../pages/Registration';
 import ShoppingCart from './shoppingcart/ShoppingCart';
 import { CartContext } from '../contexts/CartContext';
 import { UserContext } from '../contexts/UserContext';
@@ -28,8 +27,8 @@ const Navbar = () => {
   return (
     <div className='header'>
       <div className='title-logo'>
-        <FaAdn size={35} />
-        <h1>ECOMMERCE</h1>
+        <FaTshirt size={35} />
+        <h1>TRENDY THREADS</h1>
       </div>
       <div className='navigation'>
         <li>
