@@ -1,11 +1,7 @@
-import { useContext } from "react";
-import { FaTrash } from "react-icons/fa";
-import { CartContext } from '../../contexts/CartContext';
 import { Link } from "react-router-dom";
 
-const CartProductUserProfile = ({item, index}) => {
+const CartProductUserProfile = ({item}) => {
 
-  const { removeFromCart, incrementQuantity, decrementQuantity } = useContext(CartContext);
 
   return (
     <div className="d-flex justify-content-between align-items-center p-2 gap-3">
@@ -18,10 +14,7 @@ const CartProductUserProfile = ({item, index}) => {
        </Link>
        <div className='buttons d-flex gap-1'>
          <div className="btn-group btn-group-sm" role="group">
-           {/* <button className="btn btn-sm btn-dark" onClick={() => decrementQuantity(index)}>-</button>
-           <button className="btn btn-sm btn-dark" onClick={() => incrementQuantity(index)}>+</button> */}
          </div>
-         {/* <button className="btn btn-sm btn-danger" onClick={() => removeFromCart(index)}><FaTrash /></button> */}
        </div>
      </div>
   )

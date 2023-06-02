@@ -11,7 +11,6 @@ const StarIcon = ({ filled }) => (filled ? <FaStar className="star" /> : <FaRegS
 const ProductDetailInfo = () => {
 
     const { data, quantity, incrementQuantity, decrementQuantity } = useContext(ProductDetailContext)
-    // console.log(data);
     const { addToCart } = useContext(CartContext)
 
     if (!data) {
@@ -68,8 +67,6 @@ const ProductDetailInfo = () => {
                 <button className="quantity-button" onClick={incrementQuantity}>+</button>
                 <button onClick={handleAddToCart} className="button button-primary" style={{marginLeft: '1rem'}}>Add to Cart <BsCart3 className='cart'/></button>
             </div>
-            {/* <div className="action-buttons">
-            </div> */}
             <button className="wishlist-button">Add to Wishlist</button>
             <p className="category">Category: Clothes</p>
           </div>
