@@ -8,11 +8,6 @@ const ShoppingCart = () => {
   const { cartItems, totalQuantity, removeFromCart, clearCart, incrementQuantity, decrementQuantity, checkOut } = useContext(CartContext);
   const [isToggled, setIsToggled] = useState(false);
 
-  // const handleToggle = () => {
-  //   // e.stopPropagation();
-  //   setIsToggled(!isToggled);
-  // };
-
   const calculateTotal = () => {
     let totalPrice = 0
     cartItems.forEach(item => {

@@ -21,8 +21,6 @@ const ProductContextProvider = ({ children, limit }) => {
     fetchData();
   }, [limit]);
 
-  console.log(data)
-
   const loadMoreProducts = async () => {
     try {
       const result = await axios.get(`http://localhost:8080/api/product?limit=${limit + 4}`);

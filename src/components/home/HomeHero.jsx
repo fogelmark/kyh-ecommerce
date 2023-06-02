@@ -13,7 +13,7 @@ const HomeHero = () => {
   return (
     <div className='home-hero-container'>
       <div className='home-hero-left'>
-        <p>WELCOME TO ECOMMERCE</p>
+        <p>WELCOME TO TRENDY THREADS</p>
         <h1>Exclusive mens wear</h1>
         <Link to={`/product/`}><button className='button button-primary'>shop now</button></Link>
       </div>
