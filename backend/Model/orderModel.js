@@ -1,6 +1,5 @@
 const Order = require('../Schema/orderSchema')
 
-// CREATE
 
 exports.createNewOrder = async (req, res) => {
     const { orderRows } = req.body
@@ -15,7 +14,6 @@ exports.createNewOrder = async (req, res) => {
             orderRows,
             userId: req.userId
         })
-    //   res.status(201).json(data)
       res.status(201).json({ userId: data.userId })
 
 

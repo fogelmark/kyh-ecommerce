@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { FaTshirt } from "react-icons/fa";
 import { BsSearch, BsCart3 } from "react-icons/bs";
 import { NavLink } from 'react-router-dom';

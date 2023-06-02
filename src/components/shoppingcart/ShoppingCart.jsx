@@ -1,7 +1,5 @@
-import { useContext, useState, useEffect } from "react";
-import { BsCart3 } from "react-icons/bs";
+import { useContext, useState } from "react";
 import { CartContext } from "../../contexts/CartContext";
-import { FaTrash } from "react-icons/fa";
 import CartProduct from "./CartProduct";
 
 const ShoppingCart = () => {
