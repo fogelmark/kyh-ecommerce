@@ -33,7 +33,7 @@ const OrderContextProvider = ({ children }) => {
 
 
   const submitOrder = (cart) => {
-    
+    console.log(cart)
     const token = localStorage.getItem('token') 
     const parse = JSON.parse(token)
 

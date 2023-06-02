@@ -8,8 +8,9 @@ const Checkout = () => {
    const { orders , submitOrder } = useContext(OrderContext)
 
     const { cartItems, totalQuantity, removeFromCart, clearCart, incrementQuantity, decrementQuantity} = useContext(CartContext);
-    console.log(cartItems)
-  
+       
+
+
      const calculateTotal = () => {
       let totalPrice = 0
       cartItems.forEach(item => {
@@ -36,6 +37,7 @@ const Checkout = () => {
          <button className="checkout btn btn-cart clear" onClick={clearCart}>Clear Cart</button>
          <button className="checkout btn btn-cart info" onClick={() => submitOrder(cartItems)}>Submit Order</button>
         </div>
+
       </div>
     </div>
     </div>

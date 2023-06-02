@@ -88,6 +88,8 @@ const CartProvider = ({ children }) => {
     addToCart,
     removeFromCart,
     clearCart,
+    
+    
    
     decrementQuantity,
     incrementQuantity,

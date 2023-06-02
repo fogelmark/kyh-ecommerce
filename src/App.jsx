@@ -11,6 +11,7 @@ import ProductDetails from './pages/ProductDetails.jsx'
 import UserProfile from './pages/UserProfile'
 import OrderContextProvider from './contexts/OrderContext'
 import Checkout from './pages/Checkout'
+import AboutUs from './pages/AboutUs'
 
 const App = () => {
 
@@ -36,9 +37,9 @@ const App = () => {
         </OrderContextProvider>
            } />
 
-
-
-      </Routes>
+         <Route path='/aboutus' element={
+          <AboutUs />} />
+        </Routes>
       <Footer />
     </div>
   )
